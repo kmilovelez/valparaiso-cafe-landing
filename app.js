@@ -1,82 +1,131 @@
 /* ===================================================================
-   VALPARAÍSO CAFÉ CO. - JAVASCRIPT CONTROLLER & STATE
+   VALPARAÍSO CAFÉ CO. - MASTER CONTROLLER & APPLICATION STATE
+   Sourced from Official Google Drive Records & Commercial Proposals
    =================================================================== */
 
-// Products Catalog Data (Sourced from Official Valparaíso Drive Records)
+// Master Products Catalog
 const PRODUCTS = [
+  // --- CAFÉ DE ESPECIALIDAD (3 EDICIONES DE ETIQUETA) ---
   {
-    id: 'cafe-la-maravilla-240g',
-    title: 'Café de Especialidad La Maravilla 240g',
+    id: 'cafe-valparaiso-clasico-240g',
+    title: 'Café de Especialidad La Maravilla — Edición Clásica (240g)',
     category: 'cafe',
-    badge: '85.74 SCA Certificado',
+    badge: '85.74 SCA • 1.600 msnm',
     price: 32000,
-    desc: 'Cosechado a mano en las alturas de Valparaíso, Antioquia. Notas a panela dulce, naranja fresca, chocolate suave y flores de montaña.',
+    desc: 'Notas a panela acaramelada, chocolate oscuro, vainilla y flores de montaña. Tueste medio fresco, acidez cítrica brillante y cuerpo cremoso.',
     img: 'assets/prevalentware_beans.webp',
     hasGrind: true,
-    options: ['Grano Entero', 'Molienda Chemex / Filtro', 'Molienda Prensa Francesa', 'Molienda Espresso']
+    options: ['Grano Entero (Recomendado)', 'Molienda Media (Chemex / V60 / Goteo)', 'Molienda Gruesa (Prensa Francesa / Olla)', 'Molienda Fina (Espresso / Moka)']
   },
   {
-    id: 'cafe-la-maravilla-2500g',
-    title: 'Bolsa Café de Especialidad 2.500g',
+    id: 'cafe-valparaiso-natural-240g',
+    title: 'Café Proceso Natural — Edición Naranja (240g)',
     category: 'cafe',
-    badge: 'Edición Barista / Negocio',
-    price: 170000,
-    desc: 'Presentación institucional de 2.5 kg para amantes del café de especialidad, oficinas gourmet y cafeterías.',
+    badge: 'Proceso Natural • Frutal',
+    price: 36000,
+    desc: 'Secado lento en cereza bajo el sol de Valparaíso. Exuberante dulzor natural a frutas amarillas, naranja madura, miel de caña y toque vinoso.',
     img: 'assets/prevalentware_beans.webp',
     hasGrind: true,
-    options: ['Grano Entero', 'Molienda Filtro', 'Molienda Espresso']
+    options: ['Grano Entero (Recomendado)', 'Molienda Media (Filtro / V60)', 'Molienda Gruesa (Prensa Francesa)']
   },
   {
-    id: 'kit-chemex-completo',
-    title: 'Kit Completo Chemex de Especialidad',
+    id: 'cafe-valparaiso-frutos-rojos-240g',
+    title: 'Café Edición Selección — Frutos Rojos (240g)',
+    category: 'cafe',
+    badge: 'Edición Limitada • Finca La Maravilla',
+    price: 38000,
+    desc: 'Lote microlote cosechado en el punto máximo de maduración. Notas marcadas a fresa silvestre, cereza, cacao fino y acidez brillante balanceada.',
+    img: 'assets/prevalentware_beans.webp',
+    hasGrind: true,
+    options: ['Grano Entero (Recomendado)', 'Molienda Media (Chemex / Filtro)', 'Molienda Fina (Espresso)']
+  },
+  {
+    id: 'cafe-valparaiso-5lb-2500g',
+    title: 'Bolsa Institucional 2.500g (5 Libras) — Tueste Semanal',
+    category: 'cafe',
+    badge: 'Tarifa Oficial 2025 • Barista',
+    price: 170000,
+    desc: 'Presentación de 2.5 kg en grano para amantes del café de especialidad, cafeterías de autor y oficinas con consumo frecuente.',
+    img: 'assets/prevalentware_beans.webp',
+    hasGrind: true,
+    options: ['Grano Entero (Para Molino / Máquinas Saeco)', 'Molienda Media Filtro', 'Molienda Espresso']
+  },
+
+  // --- KITS CORPORATIVOS & DE EXPERIENCIA "COMPARTIR" ---
+  {
+    id: 'kit-opcion-a-chemex-completo',
+    title: 'Opción A: Kit Completo Ejecutivo Chemex "Compartir"',
     category: 'kits',
-    badge: 'Edición Compartir',
+    badge: 'La Experiencia Definitiva',
     price: 215000,
-    desc: 'Cafetera Chemex de borosilicato con collar de madera noble y lazo de cuero, 2 pocillos térmicos de doble pared, Café La Maravilla 240g, filtros y caja de lujo.',
+    desc: 'Cafetera Chemex facetada de borosilicato 600ml con collar de madera y lazo de cuero, 2 pocillos térmicos de doble pared 150ml, filtros de papel, Café Valparaíso 240g y caja de lujo microcorrugado negro mate.',
     img: 'assets/kit_chemex.webp',
     hasGrind: true,
     options: ['Molienda Media (Ideal Chemex)', 'Grano Entero']
   },
   {
-    id: 'kit-prensa-francesa',
-    title: 'Kit Prensa Francesa Artesanal',
+    id: 'kit-opcion-b-chemex-sin-pocillos',
+    title: 'Opción B: Kit Chemex + Filtros',
     category: 'kits',
-    badge: 'Cuerpo Cremoso',
+    badge: 'Puristas del Filtro',
+    price: 165000,
+    desc: 'Cafetera Chemex 600ml con collar en madera noble, paquete de filtros de alta retención, Café de Especialidad Valparaíso 240g y caja rígida de regalo "Compartir".',
+    img: 'assets/kit_chemex.webp',
+    hasGrind: true,
+    options: ['Molienda Media (Chemex)', 'Grano Entero']
+  },
+  {
+    id: 'kit-opcion-d-prensa-francesa',
+    title: 'Opción D: Kit Prensa Francesa 600ml',
+    category: 'kits',
+    badge: 'Cuerpo & Sedosidad',
     price: 145000,
-    desc: 'Prensa francesa con émbolo en acero inoxidable y vaso de vidrio borosilicato, Café de Especialidad La Maravilla 240g molienda gruesa y caja de regalo.',
+    desc: 'Prensa francesa con émbolo en acero inoxidable y vaso de vidrio borosilicato, Café de Especialidad Valparaíso 240g molienda gruesa y caja de regalo negra mate.',
     img: 'assets/kit_prensa.webp',
     hasGrind: true,
-    options: ['Molienda Gruesa (Prensa)', 'Grano Entero']
+    options: ['Molienda Gruesa (Prensa Francesa)', 'Grano Entero']
   },
   {
-    id: 'kit-dripper-v60',
-    title: 'Kit Dripper V60 + Filtros Cónicos',
+    id: 'kit-opcion-e-dripper-v60',
+    title: 'Opción E: Kit Dripper V60 Barista + Filtros',
     category: 'kits',
-    badge: 'Taza Limpia & Cítrica',
+    badge: 'Taza Limpia & Aromática',
     price: 155000,
-    desc: 'Cono de goteo cerámico V60 color carbón mate, pack de filtros de alta retención, Café de Especialidad La Maravilla 240g y guía de extracción barista.',
+    desc: 'Cono de extracción cerámico V60 color carbón mate, filtros cónicos especiales de papel no blanqueado, Café Valparaíso 240g y caja de regalo de lujo.',
     img: 'assets/kit_v60.webp',
     hasGrind: true,
-    options: ['Molienda Media-Fina (V60)', 'Grano Entero']
+    options: ['Molienda Media (V60)', 'Grano Entero']
   },
+
+  // --- ACCESORIOS DE BARISMO ---
   {
-    id: 'hervidor-cloud-1lt',
+    id: 'hervidor-cuello-cisne',
     title: 'Hervidor Cuello de Cisne Cloud 1.0L',
     category: 'accesorios',
-    badge: 'Control de Flujo',
+    badge: 'Precisión Barista',
     price: 73200,
-    desc: 'Tetera kettle en acero inoxidable con pico de precisión cuello de cisne ergonómico para vertido exacto en Chemex y V60.',
+    desc: 'Tetera kettle en acero inoxidable grado alimentario con caño de ganso ergonómico para verter en espiral con control milimétrico de flujo.',
     img: 'assets/brand_artwork.webp',
     hasGrind: false
   },
   {
     id: 'gramera-digital-barista',
-    title: 'Gramera Digital de Precisión con Cronómetro',
+    title: 'Gramera Digital de Precisión con Cronómetro Integrado',
     category: 'accesorios',
     badge: 'Precisión 0.1g',
     price: 65700,
-    desc: 'Báscula digital profesional para café con timer integrado para controlar ratio y tiempo de contacto en preparaciones de filtro y espresso.',
+    desc: 'Báscula profesional para barismo con timer incorporado para medir ratio café/agua (1:15 a 1:18) y tiempos de infusión precisos.',
     img: 'assets/brand_artwork.webp',
+    hasGrind: false
+  },
+  {
+    id: 'pocillos-doble-pared',
+    title: 'Set de 2 Pocillos de Vidrio Doble Pared (150ml)',
+    category: 'accesorios',
+    badge: 'Aislamiento Térmico',
+    price: 42000,
+    desc: 'Vidrio térmico borosilicato que mantiene la temperatura perfecta del café sin calentar las manos al sostenerlo.',
+    img: 'assets/kit_chemex.webp',
     hasGrind: false
   }
 ];
@@ -84,7 +133,7 @@ const PRODUCTS = [
 // Shopping Cart State
 let cart = [];
 
-// Format COP currency
+// Format COP Currency
 function formatCOP(amount) {
   return new Intl.NumberFormat('es-CO', {
     style: 'currency',
@@ -116,7 +165,7 @@ function renderProducts(filter = 'todos') {
           
           ${p.hasGrind ? `
             <div class="product-options-row">
-              <select class="grind-select" id="grind-${p.id}">
+              <select class="grind-select" id="grind-${p.id}" aria-label="Seleccionar molienda">
                 ${p.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
               </select>
             </div>
@@ -245,7 +294,7 @@ function checkoutWhatsApp() {
   }
 
   const phone = '573002637978';
-  let message = `*¡Hola Valparaíso Café Co.!* ☕🌿\n\nDeseo realizar el siguiente pedido a través de su página web:\n\n`;
+  let message = `*¡Hola Valparaíso Café Co.!* ☕🌿\n\nDeseo realizar el siguiente pedido a través de su página web oficial:\n\n`;
 
   let total = 0;
   cart.forEach((item, i) => {
@@ -257,13 +306,13 @@ function checkoutWhatsApp() {
   });
 
   message += `*TOTAL A PAGAR: ${formatCOP(total)}*\n\n`;
-  message += `¿Podrían indicarme la cuenta para transferencia (Bancolombia/Nequi) y tiempo de despacho a mi dirección? ¡Muchas gracias!`;
+  message += `Por favor indíquenme los datos para transferencia (Bancolombia / Nequi) y tiempo de despacho a mi dirección. ¡Muchas gracias!`;
 
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
 }
 
-// B2B Office Coffee Calculator
+// B2B Office Coffee Calculator (Enhanced with Official Saeco Specs)
 function calculateOfficeCoffee() {
   const peopleInput = document.getElementById('calc-people');
   const cupsPerPersonInput = document.getElementById('calc-cups');
@@ -279,29 +328,26 @@ function calculateOfficeCoffee() {
   const dailyCups = Math.round(people * cupsPerPerson);
   const monthlyWorkDays = 22;
   const monthlyCups = dailyCups * monthlyWorkDays;
-  // Approximately 8-9 grams per espresso/specialty coffee cup
   const kgNeeded = Math.ceil((monthlyCups * 8.5) / 1000);
 
-  // Machine Recommendation Logic based on daily output
   let machineName = 'Saeco Lirika Plus';
-  let machineCapacity = 'Ideal para hasta 50 cafés diarios';
-  let machineDesc = 'Compacta, intuitiva, molino de cerámica, pantalla digital con código de colores.';
+  let machineCapacity = 'Ideal para hasta 60 cafés diarios';
+  let machineDesc = 'Molino de muelas cerámicas, pantalla intuitiva tipo semáforo, 500g grano y 2.5L de agua.';
   
-  if (dailyCups > 50 && dailyCups <= 110) {
+  if (dailyCups > 60 && dailyCups <= 120) {
     machineName = 'Saeco Aulika Focus';
-    machineCapacity = 'Ideal para 50 a 110 cafés diarios';
-    machineDesc = 'Doble caldera, one-touch cappuccino, depósito de 4L de agua y 1kg de grano.';
-  } else if (dailyCups > 110) {
-    machineName = 'Saeco Phetra Bean-to-Cup';
-    machineCapacity = 'Ideal para más de 110 cafés diarios';
-    machineDesc = 'Alta gama corporativa conectable a red hídrica, 8 bebidas programables (café, mocaccino, chocolate, té).';
+    machineCapacity = 'Ideal para 60 a 120 cafés diarios';
+    machineDesc = 'Doble caldera y doble bomba, One-Touch Cappuccino automático, 4L de agua y 1kg de grano.';
+  } else if (dailyCups > 120) {
+    machineName = 'Saeco Phedra Bean-to-Cup';
+    machineCapacity = 'Alta demanda (+120 cafés/día y eventos)';
+    machineDesc = 'Conexión a red hídrica, 8 selecciones programables (Espresso, Americano, Cappuccino, Latte, Mocaccino, Chocolate y Té).';
   }
 
-  // Cost estimates: Tarifa Plana includes machine, specialty coffee beans, maintenance
-  // Average ~$1.000 COP per cup in comodato model vs ~$2.500+ commercial pod
-  const estimatedMonthlyCOP = monthlyCups * 1100;
-  const podCostEstimated = monthlyCups * 2600;
-  const monthlySavings = podCostEstimated - estimatedMonthlyCOP;
+  // Cost estimates: Tarifa Plana ~$1.000 COP/cup vs ~$2.800 COP/commercial capsule
+  const estimatedMonthlyCOP = monthlyCups * 1000;
+  const capsuleCostEstimated = monthlyCups * 2800;
+  const monthlySavings = capsuleCostEstimated - estimatedMonthlyCOP;
 
   document.getElementById('calc-daily-cups').textContent = `${dailyCups} tazas/día`;
   document.getElementById('calc-monthly-cups').textContent = `${monthlyCups.toLocaleString('es-CO')} tazas`;
@@ -314,15 +360,29 @@ function calculateOfficeCoffee() {
 }
 
 // Request B2B Quote via WhatsApp
-function quoteOfficeViaWhatsApp() {
-  const people = document.getElementById('calc-people')?.value || '30';
+function quoteOfficeViaWhatsApp(customPlan = null) {
+  const people = document.getElementById('calc-people')?.value || '35';
   const cups = document.getElementById('calc-cups')?.value || '2';
   const daily = Math.round(people * cups);
-  const machine = document.getElementById('calc-recommended-name')?.textContent || 'Saeco Aulika Focus';
+  const machine = customPlan || document.getElementById('calc-recommended-name')?.textContent || 'Saeco Aulika Focus';
 
   const phone = '573002637978';
-  const message = `*¡Hola Juan Camilo / Valparaíso Café Co.!* ☕🏢\n\nEstoy interesado en una solución de *Café de Especialidad en Comodato* para nuestra empresa:\n\n• Equipo de trabajo: ${people} personas\n• Estimado de consumo: ~${daily} cafés al día\n• Máquina recomendada: *${machine}*\n\n¿Podrían brindarnos una asesoría comercial y coordinar una degustación en nuestras oficinas? ¡Muchas gracias!`;
+  const message = `*¡Hola Juan Camilo / Valparaíso Café Co.!* ☕🏢\n\nEstoy interesado en una propuesta de *Café de Especialidad para Empresas*:\n\n• Modalidad: ${customPlan ? customPlan : 'Comodato Tarifa Plana Todo Incluido'}\n• Equipo de trabajo: ${people} personas\n• Estimado de consumo: ~${daily} cafés al día\n• Máquina de interés: *${machine}*\n\n¿Podríamos agendar una degustación en nuestra sede o conocer la cotización formal? ¡Muchas gracias!`;
 
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// Quote Event Catering Station
+function quoteEventStation() {
+  const phone = '573002637978';
+  const message = `*¡Hola Valparaíso Café Co.!* ☕🎪\n\nDeseo cotizar el servicio de *Estación de Café para Eventos / Feria Corporativa*:\n\n• Incluye: Máquina superautomática Saeco de molienda al instante, Café de origen Valparaíso, vasos biodegradables 4oz/7oz, mezcladores ecológicos y endulzante natural.\n\n¿Podrían indicarme disponibilidad y detalles para nuestra fecha?`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// Quote Custom Corporate Gift Boxes (Kits Compartir)
+function quoteCorporateGifts() {
+  const phone = '573002637978';
+  const message = `*¡Hola Juan Camilo / Valparaíso Café Co.!* 🎁☕\n\nQuisiera cotizar un lote del *Kit Corporativo de Café "Compartir"* personalizado para nuestra empresa (Opciones Chemex / Prensa Francesa / V60 con logo en caja y etiqueta).\n\n¿Podrían enviarme el catálogo corporativo con escala de precios por volumen?`;
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
@@ -336,17 +396,16 @@ function handleContactSubmit(e) {
   const messageText = document.getElementById('contact-message')?.value;
 
   const targetPhone = '573002637978';
-  const text = `*Nuevo Mensaje desde Web Valparaíso Café*\n\n• Nombre: ${name}\n• Teléfono: ${phone}\n• Email: ${email}\n• Tipo de consulta: ${type}\n• Mensaje: ${messageText}`;
+  const text = `*Nuevo Contacto desde Sitio Web Valparaíso Café*\n\n• Nombre: ${name}\n• Teléfono: ${phone}\n• Email: ${email}\n• Tipo de Solicitud: ${type}\n• Mensaje: ${messageText}`;
 
   window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`, '_blank');
 }
 
 // DOM Ready initialization
 document.addEventListener('DOMContentLoaded', () => {
-  // Render products
   renderProducts();
 
-  // Shop filter tabs
+  // Filter tabs
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -372,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (peopleSlider && cupsSlider) {
     peopleSlider.addEventListener('input', calculateOfficeCoffee);
     cupsSlider.addEventListener('input', calculateOfficeCoffee);
-    calculateOfficeCoffee(); // initial run
+    calculateOfficeCoffee();
   }
 
   // FAQ Accordion
