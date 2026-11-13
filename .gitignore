@@ -1,0 +1,11 @@
+# Node & Build
+node_modules/
+dist/
+.DS_Store
+
+# Temporary & Cache
+/valparaiso-assets/
+/tmp/
+*.pdf
+*.zip
+*.rar
