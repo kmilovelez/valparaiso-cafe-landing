@@ -13,7 +13,7 @@ const PRODUCTS = [
     badge: '85.74 SCA • 1.600 msnm',
     price: 32000,
     desc: 'Notas a panela acaramelada, chocolate oscuro, vainilla y flores de montaña. Tueste medio fresco, acidez cítrica brillante y cuerpo cremoso.',
-    img: 'assets/prevalentware_beans.webp',
+    img: 'assets/bolsa_grano.webp',
     hasGrind: true,
     options: ['Grano Entero (Recomendado)', 'Molienda Media (Chemex / V60 / Goteo)', 'Molienda Gruesa (Prensa Francesa / Olla)', 'Molienda Fina (Espresso / Moka)']
   },
@@ -24,7 +24,7 @@ const PRODUCTS = [
     badge: 'Proceso Natural • Frutal',
     price: 36000,
     desc: 'Secado lento en cereza bajo el sol de Valparaíso. Exuberante dulzor natural a frutas amarillas, naranja madura, miel de caña y toque vinoso.',
-    img: 'assets/prevalentware_beans.webp',
+    img: 'assets/patio_secado.webp',
     hasGrind: true,
     options: ['Grano Entero (Recomendado)', 'Molienda Media (Filtro / V60)', 'Molienda Gruesa (Prensa Francesa)']
   },
@@ -35,7 +35,7 @@ const PRODUCTS = [
     badge: 'Edición Limitada • Finca La Maravilla',
     price: 38000,
     desc: 'Lote microlote cosechado en el punto máximo de maduración. Notas marcadas a fresa silvestre, cereza, cacao fino y acidez brillante balanceada.',
-    img: 'assets/prevalentware_beans.webp',
+    img: 'assets/cerezas_cultivo.webp',
     hasGrind: true,
     options: ['Grano Entero (Recomendado)', 'Molienda Media (Chemex / Filtro)', 'Molienda Fina (Espresso)']
   },
@@ -46,7 +46,7 @@ const PRODUCTS = [
     badge: 'Tarifa Oficial 2025 • Barista',
     price: 170000,
     desc: 'Presentación de 2.5 kg en grano para amantes del café de especialidad, cafeterías de autor y oficinas con consumo frecuente.',
-    img: 'assets/prevalentware_beans.webp',
+    img: 'assets/empaque_detalle_front.webp',
     hasGrind: true,
     options: ['Grano Entero (Para Molino / Máquinas Saeco)', 'Molienda Media Filtro', 'Molienda Espresso']
   },
