@@ -3,641 +3,472 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valparaíso Café Co. — Productores de Café de Especialidad | Antioquia, 1940</title>
-  <meta name="description" content="Café de especialidad cultivado a 1.300–1.800 msnm en Finca La Maravilla, Vereda Playa Rica, Valparaíso, Antioquia. Tres generaciones desde 1940. Puntaje 85.74 SCA.">
+  <title>Valparaíso Café Co. | Café de Especialidad Finca La Maravilla</title>
+  <meta name="description" content="Café de especialidad cultivado entre 1.300 y 1.800 msnm en Finca La Maravilla, Vereda Playa Rica, Valparaíso, Antioquia. Tres generaciones desde 1940. Puntaje 85.74 SCA.">
+  <meta property="og:title" content="Valparaíso Café Co. | Finca La Maravilla, Antioquia">
+  <meta property="og:description" content="Tres generaciones cultivando café de especialidad a 1.300 - 1.800 msnm en el Suroeste Antioqueño. Calificación 85.74 SCA.">
+  <meta property="og:image" content="assets/bolsa_grano.webp">
+  <link rel="icon" type="image/png" href="assets/logo_white.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ==================== ARCHITECTURAL HEADER ==================== -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ==================== NAVIGATION (Single Line, 72px Height) ==================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#inicio" class="brand-identity" aria-label="Valparaíso Café Co. Inicio">
-        <img src="assets/logo_white.png" alt="Valparaíso Café Co." class="brand-logo">
-        <div class="brand-text">
+      <a href="#inicio" class="brand-mark" aria-label="Valparaíso Café Co. Inicio">
+        <img src="assets/logo_white.png" alt="Logo oficial Valparaíso Café Co." class="brand-logo">
+        <div>
           <span class="brand-name">Valparaíso</span>
-          <span class="brand-origin">Antioquia • Est. 1940</span>
+          <span class="brand-sub">Finca La Maravilla</span>
         </div>
       </a>
 
-      <nav class="primary-nav" id="primary-nav" aria-label="Navegación Principal">
-        <a href="#origen" class="nav-item">01 / Origen</a>
-        <a href="#laboratorio" class="nav-item">02 / Perfil 85.74</a>
-        <a href="#coleccion" class="nav-item">03 / Colección</a>
-        <a href="#protocolo" class="nav-item">04 / Extracción</a>
-        <a href="#empresas" class="nav-item">05 / Empresas B2B</a>
+      <nav aria-label="Navegación Principal">
+        <ul class="nav-list" id="primary-nav">
+          <li><a href="#origen" class="nav-link">Origen & Terroir</a></li>
+          <li><a href="#calidad" class="nav-link">Calidad 85.74 SCA</a></li>
+          <li><a href="#coleccion" class="nav-link">Colección & Kits</a></li>
+          <li><a href="#extraccion" class="nav-link">Guía de Molienda</a></li>
+          <li><a href="#empresas" class="nav-link">Café para Empresas</a></li>
+        </ul>
       </nav>
 
       <div class="header-actions">
-        <button class="cart-trigger" id="cart-button" onclick="openCartDrawer()" aria-label="Abrir bolsa de compras">
+        <button class="bag-btn" id="cart-button" onclick="openCartDrawer()" aria-label="Abrir bolsa de compras">
           <span>Bolsa</span>
-          <span class="cart-count" id="cart-badge">0</span>
+          <span class="bag-count" id="cart-badge">0</span>
         </button>
 
-        <button class="mobile-menu-btn" id="menu-toggle" aria-label="Abrir menú de navegación">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="3" y1="7" x2="21" y2="7"></line>
-            <line x1="3" y1="17" x2="21" y2="17"></line>
+        <button class="mobile-toggle" id="menu-toggle" aria-label="Menú de navegación">
+          <svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor">
+            <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
           </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ==================== HERO SECTION ==================== -->
-  <main id="inicio">
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-narrative">
-            <div>
-              <span class="hero-kicker">Finca La Maravilla • Vereda Playa Rica • Suroeste Antioqueño</span>
-              <h1 class="hero-headline">
-                Ochenta años de silencio en la montaña, <em>destilados en una taza.</em>
-              </h1>
-              <p class="hero-subcopy">
-                Cultivado sin intermediarios por tres generaciones de la familia Valencia Vélez entre los 1.300 y 1.800 msnm. Cosecha manual en cereza madura, secado al sol andino y tueste fresco semanal con calificación de excelencia 85.74 SCA.
-              </p>
-            </div>
+  <main id="main-content">
 
-            <div class="hero-cta-group">
-              <a href="#coleccion" class="btn btn-solid">Explorar Colección</a>
-              <a href="#empresas" class="btn btn-outline">Programas para Oficinas</a>
+    <!-- ==================== FAMILY 1: ASYMMETRIC SPLIT HERO ==================== -->
+    <section class="hero-section" id="inicio">
+      <div class="container" style="padding-right: 0; max-width: 100%;">
+        <div class="hero-split" style="max-width: var(--container-max); margin: 0 auto; padding-left: var(--gutter);">
+          <div class="hero-copy-col">
+            <span class="eyebrow-tag">Vereda Playa Rica, Valparaíso, Antioquia</span>
+            <h1 class="hero-headline">
+              Tres generaciones cultivando <em>café de altura.</em>
+            </h1>
+            <p class="hero-subtext">
+              Cosechado a mano entre 1.300 y 1.800 msnm en Finca La Maravilla. Tueste fresco semanal con puntaje 85.74 SCA.
+            </p>
+            <div class="hero-actions">
+              <a href="#coleccion" class="btn btn-primary">Explorar Colección</a>
+              <a href="#empresas" class="btn btn-secondary">Planes para Oficinas</a>
             </div>
           </div>
 
-          <div class="hero-visual">
-            <div class="hero-img-container">
-              <img src="assets/bolsa_grano.webp" alt="Empaque oficial Valparaíso Café Co. sobre granos recién tostados" class="hero-img-main">
-            </div>
-            <div class="hero-caption-bar">
-              <span>Lote Activo: Cosecha Finca La Maravilla</span>
-              <span>85.74 Puntos SCA</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Technical Telemetry Bar -->
-      <div class="telemetry-bar">
-        <div class="container">
-          <div class="telemetry-grid">
-            <div class="telemetry-cell">
-              <span class="telemetry-label">Terroir & Origen</span>
-              <span class="telemetry-val">Vereda Playa Rica, Valparaíso</span>
-            </div>
-            <div class="telemetry-cell">
-              <span class="telemetry-label">Altitud de Cultivo</span>
-              <span class="telemetry-val">1.300 – 1.800 m.s.n.m.</span>
-            </div>
-            <div class="telemetry-cell">
-              <span class="telemetry-label">Variedad Botánica</span>
-              <span class="telemetry-val">Castillo El Rosario (Arábica)</span>
-            </div>
-            <div class="telemetry-cell">
-              <span class="telemetry-label">Puntaje Oficial SCA</span>
-              <span class="telemetry-val">85.74 / Especialidad Excelente</span>
-            </div>
-            <div class="telemetry-cell">
-              <span class="telemetry-label">Registro Sanitario</span>
-              <span class="telemetry-val">INVIMA NSA-0007342-2019</span>
-            </div>
+          <div class="hero-media-col">
+            <img src="assets/bolsa_grano.webp" alt="Empaque negro mate de Valparaíso Café Co. sobre granos recién tostados" class="hero-img">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 01 / ORIGEN & TRAZabilidad ==================== -->
-    <section class="section-pad section-border-b" id="origen">
+    <!-- ==================== FAMILY 2: ASYMMETRIC BENTO GRID (5 Cells) ==================== -->
+    <section class="section-block reveal-up" id="origen">
       <div class="container">
-        <div class="editorial-header">
-          <div class="index-meta">01 / Herencia & Terroir</div>
-          <div class="editorial-title-wrap">
-            <h2 class="editorial-title">De la finca <em>Don Jesús</em> en 1940 a las manos del caficultor hoy.</h2>
-          </div>
+        <div class="section-header-stack">
+          <h2 class="section-heading">De la finca <em>Don Jesús</em> en 1940 a las manos del caficultor hoy.</h2>
+          <p class="section-subcopy">
+            Ocho décadas cultivando la variedad Castillo El Rosario en suelos volcánicos del Suroeste Antioqueño, sin intermediarios y con trazabilidad completa en cada lote.
+          </p>
         </div>
 
-        <div class="heritage-layout">
-          <div class="heritage-quote-box">
-            <p class="heritage-quote-text">
-              “Don Jesús, así llamaban la finca cafetera que mi abuelo Jesús María Valencia trabajó desde 1940 y que luego nos heredó a mi madre Marta Cecilia Valencia Vélez y a mí.”
-            </p>
-            <span class="heritage-quote-author">— Juan Camilo Vélez Valencia • Tercera Generación</span>
-          </div>
-
-          <div class="heritage-narrative">
-            <p>
-              Ocho décadas después, bajo el nombre de <strong>Finca La Maravilla</strong>, preservamos intacto el oficio de cultivar café de alta montaña en las laderas volcánicas de Valparaíso, Antioquia. Cada lote nace de una trazabilidad absoluta: desde el árbol hasta la válvula desgasificadora de su empaque.
-            </p>
-            <p>
-              Rechazamos la mezcla industrial y el tueste oscuro comercial que oculta defectos. Nuestro proceso honra la química natural del grano: dulzor limpio a panela campesina, acidez cítrica de naranja madura y fragancia floral de niebla andina.
-            </p>
-          </div>
-        </div>
-
-        <!-- 4-Column Architectural Photo Quad (Authentic Drive Photos) -->
-        <div class="terroir-gallery">
-          <article class="terroir-frame">
-            <div class="terroir-img-box">
-              <img src="assets/cerezas_cultivo.webp" alt="Cerezas rojas maduras en árbol Finca La Maravilla" loading="lazy">
-              <span class="terroir-step-num">Fase 01 • Recolección</span>
+        <div class="terroir-bento">
+          <!-- Cell 1: Quote & Family Heritage (5 cols, max 3 lines quote) -->
+          <article class="bento-cell bento-manifesto">
+            <div>
+              <blockquote class="bento-quote">
+                “Don Jesús llamaban la finca que mi abuelo Jesús María Valencia trabajó desde 1940 y heredó a nuestra familia.”
+              </blockquote>
+              <span class="bento-attribution">Juan Camilo Vélez Valencia, Productor & Tercera Generación</span>
             </div>
-            <div class="terroir-caption">
-              <div>
-                <h3>Cereza Madura en Árbol</h3>
-                <p>Selección manual grano a grano en Vereda Playa Rica únicamente en su punto óptimo de concentración de azúcares naturales.</p>
-              </div>
+            <p class="bento-body-copy">
+              Hoy bajo el nombre de Finca La Maravilla honramos la química natural del grano: dulzor limpio a panela campesina, acidez cítrica de naranja madura y fragancia floral de niebla andina.
+            </p>
+          </article>
+
+          <!-- Cell 2: Finca Mirador Wide Photo (7 cols) -->
+          <article class="bento-cell bento-mirador">
+            <div class="bento-photo-wrap">
+              <img src="assets/finca_mirador.webp" alt="Mirador de Finca La Maravilla sobre las montañas de Valparaíso Antioquia" loading="lazy">
+            </div>
+            <div class="bento-caption">
+              <h3>Terroir de Montaña (1.300 a 1.800 msnm)</h3>
+              <p>La amplitud térmica de la Vereda Playa Rica ralentiza la maduración del fruto y concentra los azúcares naturales dentro de la semilla.</p>
             </div>
           </article>
 
-          <article class="terroir-frame">
-            <div class="terroir-img-box">
+          <!-- Cell 3: Ripe Cherries on Tree (4 cols) -->
+          <article class="bento-cell bento-stage">
+            <div class="bento-photo-wrap">
+              <img src="assets/cerezas_cultivo.webp" alt="Cerezas rojas de café maduras en el árbol en Finca La Maravilla" loading="lazy">
+            </div>
+            <div class="bento-caption">
+              <h3>Recolección Manual en Cereza</h3>
+              <p>Seleccionamos únicamente los frutos rojos en su punto óptimo de maduración para garantizar una taza naturalmente dulce.</p>
+            </div>
+          </article>
+
+          <!-- Cell 4: Sun Patio Drying (4 cols) -->
+          <article class="bento-cell bento-stage">
+            <div class="bento-photo-wrap">
               <img src="assets/patio_secado.webp" alt="Patio de secado al sol de café pergamino en Valparaíso" loading="lazy">
-              <span class="terroir-step-num">Fase 02 • Beneficio Solar</span>
             </div>
-            <div class="terroir-caption">
-              <div>
-                <h3>Secado al Sol de Montaña</h3>
-                <p>Reposo lento en patio solar con vista a la cordillera occidental hasta estabilizar la humedad del pergamino entre el 10% y 12%.</p>
-              </div>
+            <div class="bento-caption">
+              <h3>Beneficio & Secado al Sol</h3>
+              <p>Reposo lento en patio solar frente a la cordillera occidental hasta estabilizar la humedad del pergamino entre el 10% y 12%.</p>
             </div>
           </article>
 
-          <article class="terroir-frame">
-            <div class="terroir-img-box">
-              <img src="assets/finca_mirador.webp" alt="Mirador de Finca La Maravilla en Valparaíso Antioquia" loading="lazy">
-              <span class="terroir-step-num">Fase 03 • Ecosistema</span>
+          <!-- Cell 5: Technical Back Label & INVIMA (4 cols) -->
+          <article class="bento-cell bento-stage">
+            <div class="bento-photo-wrap">
+              <img src="assets/empaque_detalle_back.webp" alt="Reverso del empaque oficial con ficha de origen y registro INVIMA" loading="lazy">
             </div>
-            <div class="terroir-caption">
-              <div>
-                <h3>Mirador La Maravilla</h3>
-                <p>Amplitud térmica entre los 1.300 y 1.800 msnm que ralentiza la maduración del fruto y densifica la estructura celular de la semilla.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="terroir-frame">
-            <div class="terroir-img-box">
-              <img src="assets/empaque_detalle_back.webp" alt="Reverso técnico del empaque de Valparaíso Café Co." loading="lazy">
-              <span class="terroir-step-num">Fase 04 • Trazabilidad</span>
-            </div>
-            <div class="terroir-caption">
-              <div>
-                <h3>Certificación de Origen</h3>
-                <p>Empaque tricapa negro mate con válvula desgasificadora unidireccional, sello hermético y registro sanitario INVIMA vigente.</p>
-              </div>
+            <div class="bento-caption">
+              <h3>Empaque Valvulado en Origen</h3>
+              <p>Bolsa tricapa negro mate con válvula desgasificadora unidireccional y registro sanitario INVIMA NSA-0007342-2019.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 02 / LABORATORIO SENSORIAL (85.74 SCA) ==================== -->
-    <section class="section-pad section-border-b" id="laboratorio">
+    <!-- ==================== FAMILY 3: 2-COL SPEC CLUSTER GRID (85.74 SCA) ==================== -->
+    <section class="section-block reveal-up" id="calidad">
       <div class="container">
-        <div class="editorial-header">
-          <div class="index-meta">02 / Análisis Sensorial</div>
-          <div class="editorial-title-wrap">
-            <h2 class="editorial-title">Arquitectura en taza: <em>85.74 puntos</em> en la escala Specialty Coffee Association.</h2>
-            <p class="editorial-lead">
-              Un café de especialidad legítimo no requiere azúcar. Su tueste medio preserva los ácidos orgánicos y caramelos propios del fruto, entregando una bebida sedosa, limpia y naturalmente dulce.
-            </p>
-          </div>
+        <div class="section-header-stack">
+          <h2 class="section-heading">Calificación de excelencia: <em>85.74 puntos</em> en protocolo internacional SCA.</h2>
+          <p class="section-subcopy">
+            El amargor agresivo del café comercial proviene de granos defectuosos quemados en el tueste. Nuestro tueste medio preserva los caramelos y ácidos orgánicos naturales del fruto.
+          </p>
         </div>
 
-        <div class="sca-architecture">
-          <div class="sca-monument">
+        <div class="sca-showcase-layout">
+          <div class="sca-monument-box">
             <div>
-              <span class="telemetry-label">Dictamen Físico & Sensorial</span>
-              <div class="sca-score-display">85.74</div>
-              <div class="sca-classification">Grado: Especialidad Excelente • Taza 100% Limpia</div>
-              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;">
-                Evaluado bajo protocolo internacional SCA. Humedad controlada, cero defectos primarios y perfil de tueste medio diseñado para destacar tanto en métodos de filtrado como en espresso contemporáneo.
+              <span class="spec-tile-label">Puntaje Oficial en Taza</span>
+              <div class="sca-big-num">85.74</div>
+              <div class="sca-grade-title">Especialidad Excelente (Specialty Grade)</div>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
+                Dictamen físico y sensorial con cero defectos primarios. Diseñado para brillar sin azúcar tanto en métodos de filtrado como en máquinas de espresso.
               </p>
             </div>
 
-            <div class="sca-notes-grid">
-              <div class="sca-note-item">
-                <span class="sca-note-category">Dulzor Principal</span>
-                <span class="sca-note-value">Panela & Miel de Caña</span>
-              </div>
-              <div class="sca-note-item">
-                <span class="sca-note-category">Acidez</span>
-                <span class="sca-note-value">Cítrica a Naranja Madura</span>
-              </div>
-              <div class="sca-note-item">
-                <span class="sca-note-category">Cuerpo & Base</span>
-                <span class="sca-note-value">Chocolate Oscuro & Vainilla</span>
-              </div>
-              <div class="sca-note-item">
-                <span class="sca-note-category">Fragancia</span>
-                <span class="sca-note-value">Flor de Café & Frutos Rojos</span>
-              </div>
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle);">
+              <img src="assets/etiquetas_valparaiso.webp" alt="Tres ediciones de etiqueta oficial Valparaíso Café Co." style="border: 1px solid var(--border-subtle); margin-bottom: 0.85rem;" loading="lazy">
+              <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">
+                Tres curvas sensoriales: Edición Negra (Clásica Lavada), Edición Naranja (Proceso Natural) y Edición Roja (Selección Frutos Rojos).
+              </p>
             </div>
           </div>
 
-          <div class="sca-metrics-panel">
-            <div>
-              <div class="metric-row">
-                <div class="metric-header">
-                  <div>
-                    <span class="metric-name">Dulzor, Uniformidad & Taza Limpia</span>
-                    <span class="metric-detail">Consistencia absoluta entre tazas</span>
-                  </div>
-                  <span class="metric-val">10.00 / 10</span>
-                </div>
-                <div class="metric-bar-bg">
-                  <div class="metric-bar-fill" style="width: 100%;"></div>
-                </div>
-              </div>
+          <div class="sca-spec-cards-grid">
+            <article class="spec-tile">
+              <span class="spec-tile-label">Dulzor, Uniformidad & Taza Limpia</span>
+              <div class="spec-tile-value">10.00 / 10</div>
+              <p class="spec-tile-why">Ausencia total de astringencia o defectos fermentativos. Dulzor limpio a panela campesina y miel de caña.</p>
+            </article>
 
-              <div class="metric-row">
-                <div class="metric-header">
-                  <div>
-                    <span class="metric-name">Acidez</span>
-                    <span class="metric-detail">Brillante, cítrica e integrada</span>
-                  </div>
-                  <span class="metric-val">8.25 / 10</span>
-                </div>
-                <div class="metric-bar-bg">
-                  <div class="metric-bar-fill" style="width: 82.5%;"></div>
-                </div>
-              </div>
+            <article class="spec-tile">
+              <span class="spec-tile-label">Acidez Brillante & Cuerpo</span>
+              <div class="spec-tile-value">8.25 / 10</div>
+              <p class="spec-tile-why">Acidez cítrica integrada que recuerda a la naranja madura, acompañada de una textura sedosa y envolvente.</p>
+            </article>
 
-              <div class="metric-row">
-                <div class="metric-header">
-                  <div>
-                    <span class="metric-name">Cuerpo</span>
-                    <span class="metric-detail">Sedoso, cremoso y envolvente</span>
-                  </div>
-                  <span class="metric-val">8.25 / 10</span>
-                </div>
-                <div class="metric-bar-bg">
-                  <div class="metric-bar-fill" style="width: 82.5%;"></div>
-                </div>
-              </div>
+            <article class="spec-tile">
+              <span class="spec-tile-label">Fragancia & Aroma de Montaña</span>
+              <div class="spec-tile-value">8.12 / 10</div>
+              <p class="spec-tile-why">Notas aromáticas a flor de café, chocolate oscuro y vainilla silvestre desde el momento de la molienda.</p>
+            </article>
 
-              <div class="metric-row">
-                <div class="metric-header">
-                  <div>
-                    <span class="metric-name">Fragancia & Aroma</span>
-                    <span class="metric-detail">Flores blancas de montaña y caña</span>
-                  </div>
-                  <span class="metric-val">8.12 / 10</span>
-                </div>
-                <div class="metric-bar-bg">
-                  <div class="metric-bar-fill" style="width: 81.2%;"></div>
-                </div>
-              </div>
-
-              <div class="metric-row">
-                <div class="metric-header">
-                  <div>
-                    <span class="metric-name">Sabor & Balance</span>
-                    <span class="metric-detail">Equilibrio entre cacao, panela y fruta</span>
-                  </div>
-                  <span class="metric-val">8.00 / 10</span>
-                </div>
-                <div class="metric-bar-bg">
-                  <div class="metric-bar-fill" style="width: 80%;"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="editions-strip">
-              <div class="editions-thumb">
-                <img src="assets/etiquetas_valparaiso.webp" alt="Tres ediciones oficiales de etiqueta Valparaíso Café Co." loading="lazy">
-              </div>
-              <div>
-                <span class="telemetry-label" style="display: block; margin-bottom: 0.35rem;">Sistema de Identidad por Perfil</span>
-                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
-                  Nuestras tres etiquetas identifican cada curva sensorial: <strong style="color: var(--text-primary);">Edición Negra</strong> (Lavado Clásico 85.74 SCA), <strong style="color: var(--text-primary);">Edición Naranja</strong> (Proceso Natural enmielado) y <strong style="color: var(--text-primary);">Edición Selección</strong> (Microlote Frutos Rojos).
-                </p>
-              </div>
-            </div>
+            <article class="spec-tile">
+              <span class="spec-tile-label">Variedad & Altitud Certificada</span>
+              <div class="spec-tile-value">Castillo El Rosario</div>
+              <p class="spec-tile-why">100% Arábica cultivada bajo sombra regulada entre los 1.300 y 1.800 metros sobre el nivel del mar.</p>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 03 / COLECCIÓN & KITS "COMPARTIR" ==================== -->
-    <section class="section-pad section-border-b" id="coleccion">
+    <!-- ==================== FAMILY 4: PRODUCT CATALOG & KITS ==================== -->
+    <section class="section-block reveal-up" id="coleccion">
       <div class="container">
-        <div class="editorial-header">
-          <div class="index-meta">03 / Catálogo Oficial</div>
-          <div class="editorial-title-wrap">
-            <h2 class="editorial-title">Café de finca & Kits de ritual <em>“Compartir”.</em></h2>
-            <p class="editorial-lead">
-              Tostado en pequeños lotes semanales. Selecciona grano entero o la molienda exacta calibrada para tu método de extracción.
-            </p>
-          </div>
+        <div class="section-header-stack">
+          <span class="eyebrow-tag">Tienda Directa de Finca</span>
+          <h2 class="section-heading">Café recién tostado & Kits de regalo <em>“Compartir”.</em></h2>
+          <p class="section-subcopy">
+            Selecciona tu café en grano entero o con la molienda exacta para tu cafetera. Enviamos a Medellín y toda Colombia.
+          </p>
         </div>
 
-        <div class="catalog-controls">
-          <div class="filter-tabs" role="tablist" aria-label="Categorías de productos">
+        <div class="catalog-toolbar">
+          <div class="filter-group" role="tablist" aria-label="Filtrar productos por categoría">
             <button class="tab-btn active" data-category="todos">Todos (11)</button>
             <button class="tab-btn" data-category="cafe">Café de Origen (4)</button>
-            <button class="tab-btn" data-category="kits">Kits de Regalo (4)</button>
+            <button class="tab-btn" data-category="kits">Kits Compartir (4)</button>
             <button class="tab-btn" data-category="accesorios">Instrumentos (3)</button>
           </div>
-          <span class="telemetry-label">Despachos Nacionales • Medellín & Toda Colombia</span>
         </div>
 
-        <!-- Product Grid populated by app.js -->
         <div class="products-grid" id="products-grid"></div>
 
-        <!-- Bespoke Corporate Gifting Banner -->
-        <div class="bespoke-banner">
-          <div class="bespoke-content">
-            <span class="telemetry-label">Ediciones Corporativas Personalizadas</span>
-            <h3 class="bespoke-title">Kits “Compartir” con la identidad de tu organización.</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
-              Personalizamos las cajas rígidas negro mate, las etiquetas de café de 240g y las tarjetas de protocolo con el sello de tu empresa para regalos ejecutivos de fin de año, juntas directivas y bienvenida de clientes.
-            </p>
-          </div>
-          <button class="btn btn-solid" onclick="quoteCorporateGifts()">Cotizar Lote Corporativo</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 04 / PROTOCOLO DE EXTRACCIÓN ==================== -->
-    <section class="section-pad section-border-b" id="protocolo">
-      <div class="container">
-        <div class="editorial-header">
-          <div class="index-meta">04 / Guía de Barismo</div>
-          <div class="editorial-title-wrap">
-            <h2 class="editorial-title">Geometría de molienda: <em>“Preparar una buena taza es una pequeña revolución”.</em></h2>
-            <p class="editorial-lead">
-              Protocolo oficial del Taller de Barismo de Valparaíso Café Co. para ajustar la granulometría y el tiempo de contacto según tu método.
-            </p>
-          </div>
-        </div>
-
-        <div class="extraction-matrix">
-          <div class="extraction-col">
-            <div>
-              <span class="extraction-index">Calibre 01 • Inmersión</span>
-              <h3 class="extraction-title">Molienda Gruesa</h3>
-              <div class="extraction-particle">Referencia táctil: Cristales de sal marina</div>
-              <ul class="extraction-specs">
-                <li>
-                  <strong>Métodos Recomendados</strong>
-                  Prensa Francesa, Olla tradicional campesina y Cold Brew.
-                </li>
-                <li>
-                  <strong>Tiempo de Contacto</strong>
-                  4:00 minutos de inmersión completa con agua a 92 °C.
-                </li>
-                <li>
-                  <strong>Perfil en Taza</strong>
-                  Cuerpo denso, textura aterciopelada y notas profundas a chocolate oscuro y panela.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="extraction-col">
-            <div>
-              <span class="extraction-index">Calibre 02 • Percolación / Filtro</span>
-              <h3 class="extraction-title">Molienda Media</h3>
-              <div class="extraction-particle">Referencia táctil: Azúcar morena</div>
-              <ul class="extraction-specs">
-                <li>
-                  <strong>Métodos Recomendados</strong>
-                  Chemex, Dripper V60, Filtro de tela y Cafetera de goteo.
-                </li>
-                <li>
-                  <strong>Tiempo de Contacto</strong>
-                  3:00 a 3:30 minutos con pre-infusión inicial de 30 segundos.
-                </li>
-                <li>
-                  <strong>Perfil en Taza</strong>
-                  Alta claridad aromática, acidez cítrica brillante a naranja y notas florales limpias.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="extraction-col">
-            <div>
-              <span class="extraction-index">Calibre 03 • Presión</span>
-              <h3 class="extraction-title">Molienda Fina</h3>
-              <div class="extraction-particle">Referencia táctil: Sal fina de mesa</div>
-              <ul class="extraction-specs">
-                <li>
-                  <strong>Métodos Recomendados</strong>
-                  Máquina de Espresso comercial/doméstica y Cafetera Italiana Moka.
-                </li>
-                <li>
-                  <strong>Tiempo de Contacto</strong>
-                  25 a 30 segundos bajo 9 bares de presión.
-                </li>
-                <li>
-                  <strong>Perfil en Taza</strong>
-                  Extracción intensa y concentrada con crema elástica color avellana y retrogusto prolongado.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 05 / PROGRAMA EMPRESAS & COMODATO B2B ==================== -->
-    <section class="section-pad" id="empresas">
-      <div class="container">
-        <div class="editorial-header">
-          <div class="index-meta">05 / Soluciones B2B</div>
-          <div class="editorial-title-wrap">
-            <h2 class="editorial-title">Arquitectura de café para <em>oficinas, estudios y hospitalidad.</em></h2>
-            <p class="editorial-lead">
-              Reemplazamos el café comercial de oficina por café de especialidad recién tostado con máquinas automáticas italianas Saeco que muelen el grano al instante.
-            </p>
-          </div>
-        </div>
-
-        <!-- 4 Commercial Modalities -->
-        <div class="b2b-modalities-grid">
-          <div class="modality-cell featured">
-            <div>
-              <div class="modality-num">
-                <span>Modalidad 01</span>
-                <span class="modality-tag">Principal</span>
-              </div>
-              <h3 class="modality-title">Comodato Tarifa Plana</h3>
-              <div class="modality-sub">$0 Inversión en Equipo • Pago por Taza</div>
-              <p class="modality-desc">
-                Instalamos la máquina profesional Saeco sin costo de compra. Incluye suministro mensual de café Valparaíso con menos de 7 días de tueste, mantenimiento preventivo y soporte técnico integral. Tarifa desde $1.000 COP por taza según contador digital.
-              </p>
-            </div>
-            <button class="btn btn-solid btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Comodato Tarifa Plana')">Solicitar Comodato</button>
-          </div>
-
-          <div class="modality-cell">
-            <div>
-              <div class="modality-num">
-                <span>Modalidad 02</span>
-              </div>
-              <h3 class="modality-title">Suscripción Suministro</h3>
-              <div class="modality-sub">Para Oficinas con Máquina Propia</div>
-              <p class="modality-desc">
-                Abastecimiento programado en bolsas institucionales de 2.500g (5 lb) con tarifa oficial de $170.000 COP ($34.000/lb). Incluye calibración inicial de tus molinos y envío sin costo en Medellín.
-              </p>
-            </div>
-            <button class="btn btn-outline btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Suscripción Suministro de Café')">Cotizar Suministro</button>
-          </div>
-
-          <div class="modality-cell">
-            <div>
-              <div class="modality-num">
-                <span>Modalidad 03</span>
-              </div>
-              <h3 class="modality-title">Venta de Equipos + Plan</h3>
-              <div class="modality-sub">Adquisición de Activo Saeco</div>
-              <p class="modality-desc">
-                Compra directa de equipos italianos Saeco Lirika Plus ($2.765.000 + IVA), Aulika Evo Focus ($4.830.000 + IVA) o Phedra Evo Cappuccino ($9.170.000 + IVA) con garantía extendida y tarifa preferencial en grano.
-              </p>
-            </div>
-            <button class="btn btn-outline btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Adquisición Máquina Saeco')">Ver Ficha de Equipos</button>
-          </div>
-
-          <div class="modality-cell">
-            <div>
-              <div class="modality-num">
-                <span>Modalidad 04</span>
-              </div>
-              <h3 class="modality-title">Estación para Eventos</h3>
-              <div class="modality-sub">Congresos, Juntas & Ferias</div>
-              <p class="modality-desc">
-                Servicio llave en mano por días para eventos corporativos. Incluye máquinas de alta capacidad, café de especialidad ilimitado, insumos completos y acompañamiento técnico en sitio.
-              </p>
-            </div>
-            <button class="btn btn-outline btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Estación de Café para Eventos')">Reservar Fecha</button>
-          </div>
-        </div>
-
-        <!-- Interactive B2B Calculator Workspace -->
-        <div class="b2b-interactive-workspace" id="calculadora">
-          <div class="calc-controls-pane">
-            <span class="telemetry-label" style="display: block; margin-bottom: 0.5rem;">Simulador de Consumo Corporativo</span>
-            <h3 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin-bottom: 2rem;">
-              Calcula el plan exacto para tu equipo.
+        <!-- Corporate Customizing Banner -->
+        <div style="margin-top: 3rem; padding: clamp(2rem, 3.5vw, 3rem); border: 1px solid var(--border-subtle); background-color: var(--bg-secondary); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+          <div style="max-width: 62ch;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.5rem;">
+              Kits corporativos personalizados con la marca de tu empresa.
             </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
+              Personalizamos las cajas rígidas negro mate, las etiquetas de café y las tarjetas de protocolo con el logotipo de tu organización para obsequios ejecutivos y eventos corporativos.
+            </p>
+          </div>
+          <button class="btn btn-primary" onclick="quoteCorporateGifts()">Cotizar Regalos Corporativos</button>
+        </div>
+      </div>
+    </section>
 
-            <div class="control-group">
-              <div class="control-header">
-                <label for="calc-employees" class="control-label">Colaboradores en Oficina</label>
-                <span class="control-readout" id="employees-val">25 personas</span>
+    <!-- ==================== FAMILY 5: INTERACTIVE TABBED EXTRACTION GUIDE ==================== -->
+    <section class="section-block reveal-up" id="extraccion">
+      <div class="container">
+        <div class="section-header-stack">
+          <h2 class="section-heading">Guía de calibración: <em>“Preparar una buena taza es una pequeña revolución”.</em></h2>
+          <p class="section-subcopy">
+            Selecciona tu método de preparación para consultar la granulometría, la proporción de agua y el tiempo de contacto recomendados por nuestro taller de barismo.
+          </p>
+        </div>
+
+        <div class="protocol-tabs-wrapper">
+          <div class="protocol-tab-nav" role="tablist" aria-label="Seleccione calibre de molienda">
+            <button class="protocol-tab-btn active" onclick="switchProtocol('media', this)">
+              <span class="protocol-tab-title">Molienda Media</span>
+              <span class="protocol-tab-sub">Chemex / Dripper V60 / Filtro</span>
+            </button>
+            <button class="protocol-tab-btn" onclick="switchProtocol('gruesa', this)">
+              <span class="protocol-tab-title">Molienda Gruesa</span>
+              <span class="protocol-tab-sub">Prensa Francesa / Olla / Cold Brew</span>
+            </button>
+            <button class="protocol-tab-btn" onclick="switchProtocol('fina', this)">
+              <span class="protocol-tab-title">Molienda Fina</span>
+              <span class="protocol-tab-sub">Máquina de Espresso / Moka Italiana</span>
+            </button>
+          </div>
+
+          <div class="protocol-panel-content" id="protocol-panel">
+            <div class="protocol-stat-block">
+              <h4>Textura & Granulometría</h4>
+              <p id="proto-texture">Similar a cristales de azúcar morena. Permite un flujo constante sin estancar el filtro de papel.</p>
+            </div>
+            <div class="protocol-stat-block">
+              <h4>Receta & Tiempo de Contacto</h4>
+              <p id="proto-recipe">Ratio 1:15 (20g de café por 300ml de agua a 92 °C). Pre-infusión de 30s y vertido en espiral hasta los 3:15 minutos.</p>
+            </div>
+            <div class="protocol-stat-block">
+              <h4>Resultado Sensorial en Taza</h4>
+              <p id="proto-result">Taza limpia y sedosa donde destacan la acidez cítrica de naranja madura, las flores blancas y el dulzor de panela.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAMILY 6: B2B WORKSPACE & SIMULATOR ==================== -->
+    <section class="section-block reveal-up" id="empresas" style="border-bottom: none;">
+      <div class="container">
+        <div class="section-header-stack">
+          <h2 class="section-heading">Café de especialidad recién tostado para <em>oficinas, estudios y eventos.</em></h2>
+          <p class="section-subcopy">
+            Cuatro modalidades flexibles con equipos automáticos italianos Saeco que muelen el grano fresco al instante de cada preparación.
+          </p>
+        </div>
+
+        <div class="b2b-modalities">
+          <article class="modality-card primary-tier">
+            <div>
+              <span class="modality-header-tag">Modalidad Recomendada</span>
+              <h3 class="modality-name">Comodato Tarifa Plana</h3>
+              <div class="modality-highlight">$0 Costo de Máquina / Pago por Taza</div>
+              <p class="modality-copy">
+                Instalamos la máquina profesional Saeco sin inversión de activo. Incluye café en grano con menos de 7 días de tueste, mantenimiento mensual y soporte técnico. Tarifa desde $1.000 COP por taza según contador digital.
+              </p>
+            </div>
+            <button class="btn btn-primary btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Comodato Tarifa Plana')">Solicitar Comodato</button>
+          </article>
+
+          <article class="modality-card">
+            <div>
+              <span class="modality-header-tag">Abastecimiento</span>
+              <h3 class="modality-name">Suscripción en Grano</h3>
+              <div class="modality-highlight">Presentación 2.500g ($170.000 COP)</div>
+              <p class="modality-copy">
+                Para oficinas y comercios que ya cuentan con cafetera o molino propio. Despachos programados de bolsas institucionales de 5 libras con tarifa preferencial de $34.000 COP por libra.
+              </p>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Suscripción Suministro de Café')">Activar Suscripción</button>
+          </article>
+
+          <article class="modality-card">
+            <div>
+              <span class="modality-header-tag">Equipamiento Propio</span>
+              <h3 class="modality-name">Venta de Máquina Saeco</h3>
+              <div class="modality-highlight">Lirika Plus / Aulika Evo / Phedra</div>
+              <p class="modality-copy">
+                Adquisición directa de máquinas automáticas italianas Saeco desde $2.765.000 + IVA con garantía oficial, capacitación para el equipo y suministro continuo de café de finca.
+              </p>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Adquisición Máquina Saeco')">Consultar Catálogo Saeco</button>
+          </article>
+
+          <article class="modality-card">
+            <div>
+              <span class="modality-header-tag">Hospitalidad</span>
+              <h3 class="modality-name">Estación para Eventos</h3>
+              <div class="modality-highlight">Servicio por Días Llave en Mano</div>
+              <p class="modality-copy">
+                Montaje de estación de café de especialidad para congresos, juntas directivas y ferias. Incluye equipo de alto tráfico, café ilimitado, vasos e insumos completos.
+              </p>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-full" onclick="quoteOfficeViaWhatsApp('Estación de Café para Eventos')">Reservar Evento</button>
+          </article>
+        </div>
+
+        <!-- Interactive B2B Calculator -->
+        <div class="b2b-simulator" id="calculadora">
+          <div class="sim-inputs">
+            <h3 style="font-family: var(--font-serif); font-size: 1.9rem; font-weight: 400; margin-bottom: 0.5rem;">
+              Simulador de Consumo para Oficinas
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 2rem;">
+              Desliza los controles para calcular los kilos mensuales requeridos y la máquina Saeco recomendada para tu equipo.
+            </p>
+
+            <div class="slider-field">
+              <div class="slider-top">
+                <label for="calc-employees" class="slider-label">Personas en Oficina</label>
+                <span class="slider-val" id="employees-val">25 personas</span>
               </div>
-              <input type="range" id="calc-employees" class="range-slider" min="5" max="200" step="5" value="25">
+              <input type="range" id="calc-employees" class="range-input" min="5" max="200" step="5" value="25">
             </div>
 
-            <div class="control-group">
-              <div class="control-header">
-                <label for="calc-cups" class="control-label">Promedio de Tazas por Persona / Día</label>
-                <span class="control-readout" id="cups-val">2.0 tazas</span>
+            <div class="slider-field">
+              <div class="slider-top">
+                <label for="calc-cups" class="slider-label">Tazas por Persona al Día</label>
+                <span class="slider-val" id="cups-val">2.0 tazas</span>
               </div>
-              <input type="range" id="calc-cups" class="range-slider" min="1" max="4" step="0.5" value="2">
+              <input type="range" id="calc-cups" class="range-input" min="1" max="4" step="0.5" value="2">
             </div>
 
-            <div class="control-group" style="margin-bottom: 0;">
-              <div class="control-header">
-                <label for="calc-days" class="control-label">Días Laborales al Mes</label>
-                <span class="control-readout" id="days-val">22 días</span>
+            <div class="slider-field" style="margin-bottom: 0;">
+              <div class="slider-top">
+                <label for="calc-days" class="slider-label">Días Laborales al Mes</label>
+                <span class="slider-val" id="days-val">22 días</span>
               </div>
-              <input type="range" id="calc-days" class="range-slider" min="15" max="30" step="1" value="22">
+              <input type="range" id="calc-days" class="range-input" min="15" max="30" step="1" value="22">
             </div>
           </div>
 
-          <div class="calc-results-pane">
+          <div class="sim-output">
             <div>
-              <span class="telemetry-label">Proyección Mensual Estimada</span>
-
-              <div class="calc-kpis-grid">
-                <div class="calc-kpi-cell">
-                  <div class="kpi-num" id="res-total-cups">1.100</div>
-                  <div class="kpi-label">Tazas Servidas / Mes</div>
+              <span class="spec-tile-label">Proyección Mensual</span>
+              <div class="sim-kpi-row">
+                <div>
+                  <div class="sim-kpi-num" id="res-total-cups">1.100</div>
+                  <div class="sim-kpi-caption">Tazas Servidas / Mes</div>
                 </div>
-                <div class="calc-kpi-cell">
-                  <div class="kpi-num" id="res-kilos">8.8 kg</div>
-                  <div class="kpi-label">Café en Grano Fresco</div>
+                <div>
+                  <div class="sim-kpi-num" id="res-kilos">8.8 kg</div>
+                  <div class="sim-kpi-caption">Café en Grano Fresco</div>
                 </div>
               </div>
 
-              <div class="machine-recommendation-box">
-                <span class="telemetry-label" style="display: block; margin-bottom: 0.35rem;">Configuración Técnica Sugerida</span>
-                <div style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 0.35rem;" id="res-machine-name">
+              <div class="sim-machine-card">
+                <span class="spec-tile-label" style="display: block; margin-bottom: 0.3rem;">Equipo Saeco Recomendado</span>
+                <div style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 0.3rem;" id="res-machine-name">
                   Saeco Aulika Evo Focus
                 </div>
                 <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;" id="res-machine-desc">
-                  Doble circuito hidráulico, capuccinador automático One-Touch y tolva de gran capacidad. Ideal para oficinas medianas y grandes.
+                  Doble circuito hidráulico, capuccinador automático One-Touch y tolva de gran capacidad para oficinas medianas y grandes.
                 </p>
               </div>
             </div>
 
             <div>
-              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem;">
-                <span class="telemetry-label">Inversión Estimada Plan Suministro</span>
-                <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--text-primary);" id="res-cost">$612.000 COP / mes</span>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.15rem;">
+                <span class="spec-tile-label">Presupuesto Estimado en Grano</span>
+                <span style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--text-primary);" id="res-cost">$598.400 COP / mes</span>
               </div>
-              <button class="btn btn-solid btn-full" onclick="sendCalculatorQuoteToWhatsApp()">
-                Solicitar Propuesta Formal por WhatsApp
+              <button class="btn btn-primary btn-full" onclick="sendCalculatorQuoteToWhatsApp()">
+                Recibir Propuesta Formal en WhatsApp
               </button>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- ==================== ARCHITECTURAL FOOTER ==================== -->
-  <footer class="site-footer" id="contacto">
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="brand-identity" style="margin-bottom: 1.25rem;">
+      <div class="footer-cols">
+        <div>
+          <div class="brand-mark" style="margin-bottom: 1.15rem;">
             <img src="assets/logo_white.png" alt="Valparaíso Café Co." class="brand-logo">
-            <div class="brand-text">
+            <div>
               <span class="brand-name">Valparaíso Café Co.</span>
-              <span class="brand-origin">Finca La Maravilla • Desde 1940</span>
+              <span class="brand-sub">Productores desde 1940</span>
             </div>
           </div>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 420px; line-height: 1.7; margin-bottom: 1.5rem;">
-            Productores de café de especialidad 100% colombiano. Cultivado a mano en la Vereda Playa Rica, Valparaíso, Suroeste Antioqueño.
+          <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 40ch; line-height: 1.65; margin-bottom: 1.25rem;">
+            Cultivado en Finca La Maravilla, Vereda Playa Rica, Valparaíso, Suroeste Antioqueño. Procesado con registro sanitario INVIMA NSA-0007342-2019.
           </p>
-          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em;">
-            REGISTRO SANITARIO INVIMA: NSA-0007342-2019
-          </div>
         </div>
 
-        <div class="footer-col">
-          <h4 class="footer-heading">Índice</h4>
-          <ul class="footer-links">
-            <li><a href="#origen">01 / Herencia & Finca</a></li>
-            <li><a href="#laboratorio">02 / Puntaje 85.74 SCA</a></li>
-            <li><a href="#coleccion">03 / Tienda & Kits Compartir</a></li>
-            <li><a href="#protocolo">04 / Protocolo de Extracción</a></li>
-            <li><a href="#empresas">05 / Comodato para Oficinas</a></li>
+        <div>
+          <h4 class="footer-title">Secciones</h4>
+          <ul class="footer-list">
+            <li><a href="#origen">Origen & Finca La Maravilla</a></li>
+            <li><a href="#calidad">Puntaje 85.74 SCA</a></li>
+            <li><a href="#coleccion">Tienda & Kits Compartir</a></li>
+            <li><a href="#extraccion">Guía de Molienda</a></li>
+            <li><a href="#empresas">Comodato & Oficinas</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4 class="footer-heading">Contacto Directo</h4>
-          <ul class="footer-links" style="margin-bottom: 1.75rem;">
+        <div>
+          <h4 class="footer-title">Atención Directa</h4>
+          <ul class="footer-list">
             <li><a href="https://wa.me/573104141838" target="_blank" rel="noopener">WhatsApp: +57 310 414 1838</a></li>
             <li><a href="https://instagram.com/valparaisocafeco" target="_blank" rel="noopener">Instagram: @valparaisocafeco</a></li>
-            <li><span style="font-size: 0.9rem; color: var(--text-secondary);">Origen: Vereda Playa Rica, Valparaíso, Antioquia</span></li>
-            <li><span style="font-size: 0.9rem; color: var(--text-secondary);">Operación Comercial: Medellín & Envíos Nacionales</span></li>
+            <li><span style="font-size: 0.88rem; color: var(--text-secondary);">Finca: Vereda Playa Rica, Valparaíso, Antioquia</span></li>
+            <li><span style="font-size: 0.88rem; color: var(--text-secondary);">Despachos: Medellín & Toda Colombia</span></li>
           </ul>
-          <a href="https://wa.me/573104141838?text=Hola%20Valpara%C3%ADso%20Caf%C3%A9%20Co.,%20quisiera%20recibir%20asesor%C3%ADa." target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-            Escribir a Juan Camilo Vélez
-          </a>
         </div>
       </div>
 
-      <div class="footer-legal">
-        <span>© 2026 VALPARAÍSO CAFÉ CO. — TODOS LOS DERECHOS RESERVADOS.</span>
-        <span>FAMILIA VALENCIA VÉLEZ • TRES GENERACIONES DE TRADICIÓN CAFETERA</span>
+      <div class="footer-bottom">
+        <span>© 2026 Valparaíso Café Co. Familia Valencia Vélez. Todos los derechos reservados.</span>
+        <div class="footer-legal-links">
+          <a href="#coleccion">Términos de Despacho</a>
+          <a href="#empresas">Política de Privacidad</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -645,28 +476,25 @@
   <!-- ==================== SLIDE-OVER CART DRAWER ==================== -->
   <div class="drawer-backdrop" id="cart-backdrop" onclick="closeCartDrawer()"></div>
   <aside class="cart-drawer" id="cart-drawer" aria-label="Bolsa de compras">
-    <div class="drawer-header">
-      <span class="drawer-title">Tu Selección</span>
-      <button class="drawer-close" onclick="closeCartDrawer()">Cerrar</button>
+    <div class="drawer-head">
+      <span style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;">Tu Bolsa</span>
+      <button class="btn btn-secondary btn-sm" onclick="closeCartDrawer()">Cerrar</button>
     </div>
 
-    <div class="drawer-body" id="cart-items-container">
-      <!-- Populated dynamically by app.js -->
-    </div>
+    <div class="drawer-body" id="cart-items-container"></div>
 
-    <div class="drawer-footer">
-      <div class="drawer-total-row">
-        <span class="drawer-total-label">Subtotal Estimado</span>
-        <span class="drawer-total-val" id="cart-total-price">$0 COP</span>
+    <div class="drawer-foot">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.15rem;">
+        <span style="font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; color: var(--text-secondary);">Subtotal</span>
+        <span style="font-family: var(--font-serif); font-size: 1.75rem; color: var(--text-primary);" id="cart-total-price">$0 COP</span>
       </div>
-      <button class="btn btn-solid btn-full" onclick="checkoutViaWhatsApp()">
-        Finalizar Pedido por WhatsApp
+      <button class="btn btn-primary btn-full" onclick="checkoutViaWhatsApp()">
+        Confirmar Pedido por WhatsApp
       </button>
     </div>
   </aside>
 
-  <!-- Toast Notification -->
-  <div class="toast-container" id="toast">Producto agregado a tu bolsa</div>
+  <div class="toast-banner" id="toast">Producto agregado a tu bolsa</div>
 
   <script src="app.js"></script>
 </body>
