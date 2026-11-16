@@ -1,468 +1,476 @@
 /* ===================================================================
-   VALPARAÍSO CAFÉ CO. - MASTER CONTROLLER & APPLICATION STATE
-   Sourced from Official Google Drive Records & Commercial Proposals
+   VALPARAÍSO CAFÉ CO. — APPLICATION CONTROLLER (v3.0)
+   Architectural Editorial UI • Dynamic Catalog • B2B Simulator • Cart
    =================================================================== */
 
-// Master Products Catalog
+const WHATSAPP_NUMBER = '573104141838';
+
 const PRODUCTS = [
-  // --- CAFÉ DE ESPECIALIDAD (3 EDICIONES DE ETIQUETA) ---
+  // --- CAFÉ DE ORIGEN ---
   {
-    id: 'cafe-valparaiso-clasico-240g',
-    title: 'Café de Especialidad La Maravilla — Edición Clásica (240g)',
+    id: 'cafe-clasico-240g',
+    title: 'La Maravilla — Edición Clásica (240g)',
     category: 'cafe',
-    badge: '85.74 SCA • 1.600 msnm',
+    categoryLabel: 'Café de Finca • Lavado',
+    badge: '85.74 SCA',
     price: 32000,
-    desc: 'Notas a panela acaramelada, chocolate oscuro, vainilla y flores de montaña. Tueste medio fresco, acidez cítrica brillante y cuerpo cremoso.',
+    unit: 'Bolsa valvulada 240g',
+    desc: 'Nuestro lote insignia cultivado entre 1.300 y 1.800 msnm. Dulzor limpio a panela campesina, chocolate oscuro, vainilla y acidez cítrica de naranja madura.',
     img: 'assets/bolsa_grano.webp',
     hasGrind: true,
-    options: ['Grano Entero (Recomendado)', 'Molienda Media (Chemex / V60 / Goteo)', 'Molienda Gruesa (Prensa Francesa / Olla)', 'Molienda Fina (Espresso / Moka)']
+    options: [
+      'Grano Entero (Recomendado)',
+      'Molienda Media (Chemex / V60 / Filtro)',
+      'Molienda Gruesa (Prensa Francesa / Olla)',
+      'Molienda Fina (Espresso / Moka)'
+    ]
   },
   {
-    id: 'cafe-valparaiso-natural-240g',
-    title: 'Café Proceso Natural — Edición Naranja (240g)',
+    id: 'cafe-natural-240g',
+    title: 'Edición Naranja — Proceso Natural (240g)',
     category: 'cafe',
-    badge: 'Proceso Natural • Frutal',
+    categoryLabel: 'Café de Finca • Natural',
+    badge: 'Secado al Sol',
     price: 36000,
-    desc: 'Secado lento en cereza bajo el sol de Valparaíso. Exuberante dulzor natural a frutas amarillas, naranja madura, miel de caña y toque vinoso.',
+    unit: 'Bolsa valvulada 240g',
+    desc: 'Secado lento dentro de su propia cereza bajo el sol de Valparaíso. Notas pronunciadas a frutos amarillos, miel de caña, naranja confitada y final vinoso.',
     img: 'assets/patio_secado.webp',
     hasGrind: true,
-    options: ['Grano Entero (Recomendado)', 'Molienda Media (Filtro / V60)', 'Molienda Gruesa (Prensa Francesa)']
+    options: [
+      'Grano Entero (Recomendado)',
+      'Molienda Media (Chemex / V60)',
+      'Molienda Gruesa (Prensa Francesa)'
+    ]
   },
   {
-    id: 'cafe-valparaiso-frutos-rojos-240g',
-    title: 'Café Edición Selección — Frutos Rojos (240g)',
+    id: 'cafe-frutos-rojos-240g',
+    title: 'Edición Selección — Frutos Rojos (240g)',
     category: 'cafe',
-    badge: 'Edición Limitada • Finca La Maravilla',
+    categoryLabel: 'Microlote Especial',
+    badge: 'Cosecha Selectiva',
     price: 38000,
-    desc: 'Lote microlote cosechado en el punto máximo de maduración. Notas marcadas a fresa silvestre, cereza, cacao fino y acidez brillante balanceada.',
+    unit: 'Bolsa valvulada 240g',
+    desc: 'Cerezas recolectadas en el punto máximo de grados Brix en Vereda Playa Rica. Fragancia intensa a flor de café, fresa silvestre, cereza madura y cacao fino.',
     img: 'assets/cerezas_cultivo.webp',
     hasGrind: true,
-    options: ['Grano Entero (Recomendado)', 'Molienda Media (Chemex / Filtro)', 'Molienda Fina (Espresso)']
+    options: [
+      'Grano Entero (Recomendado)',
+      'Molienda Media (Métodos de Filtro)',
+      'Molienda Fina (Espresso)'
+    ]
   },
   {
-    id: 'cafe-valparaiso-5lb-2500g',
-    title: 'Bolsa Institucional 2.500g (5 Libras) — Tueste Semanal',
+    id: 'cafe-institucional-2500g',
+    title: 'Reserva Barista & Oficina — 2.500g (5 lb)',
     category: 'cafe',
-    badge: 'Tarifa Oficial 2025 • Barista',
+    categoryLabel: 'Formato Institucional',
+    badge: 'Tueste Semanal',
     price: 170000,
-    desc: 'Presentación de 2.5 kg en grano para amantes del café de especialidad, cafeterías de autor y oficinas con consumo frecuente.',
+    unit: 'Bolsa profesional 2.5 kg ($34.000/lb)',
+    desc: 'Presentación de alto rendimiento con menos de 7 días de tueste para máquinas automáticas Saeco, cafeterías de especialidad y hogares de consumo frecuente.',
     img: 'assets/empaque_detalle_front.webp',
     hasGrind: true,
-    options: ['Grano Entero (Para Molino / Máquinas Saeco)', 'Molienda Media Filtro', 'Molienda Espresso']
+    options: [
+      'Grano Entero (Máquinas Saeco / Molino)',
+      'Molienda Media Filtro',
+      'Molienda Fina Espresso'
+    ]
   },
 
-  // --- KITS CORPORATIVOS & DE EXPERIENCIA "COMPARTIR" ---
+  // --- KITS DE RITUAL "COMPARTIR" ---
   {
-    id: 'kit-opcion-a-chemex-completo',
-    title: 'Opción A: Kit Completo Ejecutivo Chemex "Compartir"',
+    id: 'kit-chemex-ejecutivo',
+    title: 'Kit “Compartir” Opción A — Chemex Ejecutivo',
     category: 'kits',
-    badge: 'La Experiencia Definitiva',
+    categoryLabel: 'Caja de Lujo Negro Mate',
+    badge: 'Edición Insignia',
     price: 215000,
-    desc: 'Cafetera Chemex facetada de borosilicato 600ml con collar de madera y lazo de cuero, 2 pocillos térmicos de doble pared 150ml, filtros de papel, Café Valparaíso 240g y caja de lujo microcorrugado negro mate.',
+    unit: 'Set completo de 5 piezas',
+    desc: 'Cafetera Chemex 600ml con collar de madera y cuero, 2 vasos térmicos de doble pared (150ml), filtros de papel, Café Valparaíso 240g y estuche rígido.',
     img: 'assets/kit_chemex.webp',
     hasGrind: true,
-    options: ['Molienda Media (Ideal Chemex)', 'Grano Entero']
+    options: [
+      'Molienda Media (Calibrada Chemex)',
+      'Grano Entero'
+    ]
   },
   {
-    id: 'kit-opcion-b-chemex-sin-pocillos',
-    title: 'Opción B: Kit Chemex + Filtros',
+    id: 'kit-chemex-purista',
+    title: 'Kit “Compartir” Opción B — Chemex & Origen',
     category: 'kits',
-    badge: 'Puristas del Filtro',
+    categoryLabel: 'Caja de Lujo Negro Mate',
+    badge: 'Ritual de Filtro',
     price: 165000,
-    desc: 'Cafetera Chemex 600ml con collar en madera noble, paquete de filtros de alta retención, Café de Especialidad Valparaíso 240g y caja rígida de regalo "Compartir".',
+    unit: 'Set de extracción',
+    desc: 'Cafetera Chemex de borosilicato 600ml con collar de madera noble, paquete de filtros de alta retención, Café Valparaíso 240g y caja de presentación.',
     img: 'assets/kit_chemex.webp',
     hasGrind: true,
-    options: ['Molienda Media (Chemex)', 'Grano Entero']
+    options: [
+      'Molienda Media (Calibrada Chemex)',
+      'Grano Entero'
+    ]
   },
   {
-    id: 'kit-opcion-d-prensa-francesa',
-    title: 'Opción D: Kit Prensa Francesa 600ml',
+    id: 'kit-v60-barista',
+    title: 'Kit “Compartir” Opción E — Dripper V60',
     category: 'kits',
-    badge: 'Cuerpo & Sedosidad',
-    price: 145000,
-    desc: 'Prensa francesa con émbolo en acero inoxidable y vaso de vidrio borosilicato, Café de Especialidad Valparaíso 240g molienda gruesa y caja de regalo negra mate.',
-    img: 'assets/kit_prensa.webp',
-    hasGrind: true,
-    options: ['Molienda Gruesa (Prensa Francesa)', 'Grano Entero']
-  },
-  {
-    id: 'kit-opcion-e-dripper-v60',
-    title: 'Opción E: Kit Dripper V60 Barista + Filtros',
-    category: 'kits',
-    badge: 'Taza Limpia & Aromática',
+    categoryLabel: 'Caja de Lujo Negro Mate',
+    badge: 'Claridad Aromática',
     price: 155000,
-    desc: 'Cono de extracción cerámico V60 color carbón mate, filtros cónicos especiales de papel no blanqueado, Café Valparaíso 240g y caja de regalo de lujo.',
+    unit: 'Set de vertido',
+    desc: 'Cono de extracción V60 en acabado negro mate con espirales internas, filtros cónicos de papel, Café Valparaíso 240g y caja de regalo.',
     img: 'assets/kit_v60.webp',
     hasGrind: true,
-    options: ['Molienda Media (V60)', 'Grano Entero']
+    options: [
+      'Molienda Media (Calibrada V60)',
+      'Grano Entero'
+    ]
+  },
+  {
+    id: 'kit-prensa-francesa',
+    title: 'Kit “Compartir” Opción D — Prensa Francesa',
+    category: 'kits',
+    categoryLabel: 'Caja de Lujo Negro Mate',
+    badge: 'Inmersión & Cuerpo',
+    price: 145000,
+    unit: 'Set de inmersión',
+    desc: 'Prensa francesa de 600ml en acero inoxidable y vidrio borosilicato, Café de Especialidad Valparaíso 240g y caja rígida de colección.',
+    img: 'assets/kit_prensa.webp',
+    hasGrind: true,
+    options: [
+      'Molienda Gruesa (Calibrada Prensa)',
+      'Grano Entero'
+    ]
   },
 
-  // --- ACCESORIOS DE BARISMO ---
+  // --- INSTRUMENTOS DE BARISMO ---
   {
     id: 'hervidor-cuello-cisne',
-    title: 'Hervidor Cuello de Cisne Cloud 1.0L',
+    title: 'Kettle Cuello de Cisne — 1.0 Litro',
     category: 'accesorios',
-    badge: 'Precisión Barista',
+    categoryLabel: 'Instrumento de Precisión',
+    badge: 'Acero Inoxidable',
     price: 73200,
-    desc: 'Tetera kettle en acero inoxidable grado alimentario con caño de ganso ergonómico para verter en espiral con control milimétrico de flujo.',
-    img: 'assets/brand_artwork.webp',
+    unit: 'Capacidad 1.0L',
+    desc: 'Tetera de vertido controlado con caño de ganso ergonómico para lograr una turbulencia uniforme en Chemex y V60.',
+    img: 'assets/matec3.webp',
     hasGrind: false
   },
   {
-    id: 'gramera-digital-barista',
-    title: 'Gramera Digital de Precisión con Cronómetro Integrado',
+    id: 'molino-manual-acero',
+    title: 'Molino Manual de Muelas Cónicas',
     category: 'accesorios',
-    badge: 'Precisión 0.1g',
-    price: 65700,
-    desc: 'Báscula profesional para barismo con timer incorporado para medir ratio café/agua (1:15 a 1:18) y tiempos de infusión precisos.',
-    img: 'assets/brand_artwork.webp',
+    categoryLabel: 'Molienda Fresca',
+    badge: 'Calibre Ajustable',
+    price: 68000,
+    unit: 'Cuerpo en acero',
+    desc: 'Muelas ajustables punto a punto desde molienda fina hasta gruesa para preservar los aceites esenciales justo antes de preparar.',
+    img: 'assets/prevalentware_beans.webp',
     hasGrind: false
   },
   {
-    id: 'pocillos-doble-pared',
-    title: 'Set de 2 Pocillos de Vidrio Doble Pared (150ml)',
+    id: 'gramera-digital-timer',
+    title: 'Báscula Barista Digital con Cronómetro',
     category: 'accesorios',
-    badge: 'Aislamiento Térmico',
-    price: 42000,
-    desc: 'Vidrio térmico borosilicato que mantiene la temperatura perfecta del café sin calentar las manos al sostenerlo.',
-    img: 'assets/kit_chemex.webp',
+    categoryLabel: 'Control de Ratio',
+    badge: 'Sensibilidad 0.1g',
+    price: 54000,
+    unit: 'Báscula + Temporizador',
+    desc: 'Permite replicar con exactitud milimétrica la proporción de gramos de café por mililitros de agua y el tiempo de contacto.',
+    img: 'assets/brand_artwork.webp',
     hasGrind: false
   }
 ];
 
-// Shopping Cart State
 let cart = [];
+let currentCategory = 'todos';
 
-// Format COP Currency
-function formatCOP(amount) {
-  return new Intl.NumberFormat('es-CO', {
-    style: 'currency',
-    currency: 'COP',
-    maximumFractionDigits: 0
-  }).format(amount);
+// Format COP currency
+function formatCOP(value) {
+  return '$' + value.toLocaleString('es-CO');
 }
 
-// Render Products Grid
-function renderProducts(filter = 'todos') {
-  const container = document.getElementById('products-grid');
-  if (!container) return;
+// Render Catalog Grid
+function renderProducts(category = 'todos') {
+  const grid = document.getElementById('products-grid');
+  if (!grid) return;
 
-  const filtered = filter === 'todos' 
-    ? PRODUCTS 
-    : PRODUCTS.filter(p => p.category === filter);
+  const filtered = category === 'todos'
+    ? PRODUCTS
+    : PRODUCTS.filter(p => p.category === category);
 
-  container.innerHTML = filtered.map(p => {
+  grid.innerHTML = filtered.map(product => {
+    const grindSelectHTML = product.hasGrind
+      ? `
+        <div class="product-options">
+          <label class="option-label" for="grind-${product.id}">Tipo de Molienda</label>
+          <select id="grind-${product.id}" class="grind-select">
+            ${product.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+          </select>
+        </div>
+      `
+      : '';
+
     return `
-      <div class="product-card" data-category="${p.category}">
-        <div class="product-thumb-wrapper">
-          <img src="${p.img}" alt="${p.title}" class="product-img" loading="lazy" />
-          <span class="product-badge">${p.badge}</span>
+      <article class="product-card">
+        <div class="product-img-wrap">
+          <img src="${product.img}" alt="${product.title}" class="product-img" loading="lazy">
+          <span class="product-badge">${product.badge}</span>
         </div>
         <div class="product-body">
-          <span class="product-category">${p.category}</span>
-          <h3 class="product-title">${p.title}</h3>
-          <p class="product-desc">${p.desc}</p>
-          
-          ${p.hasGrind ? `
-            <div class="product-options-row">
-              <select class="grind-select" id="grind-${p.id}" aria-label="Seleccionar molienda">
-                ${p.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
-              </select>
-            </div>
-          ` : ''}
-
+          <span class="product-category">${product.categoryLabel}</span>
+          <h3 class="product-title">${product.title}</h3>
+          <p class="product-desc">${product.desc}</p>
+          ${grindSelectHTML}
           <div class="product-footer">
-            <div class="product-price">
-              <span>COP</span>${formatCOP(p.price).replace('COP', '').trim()}
+            <div>
+              <span class="product-price">${formatCOP(product.price)}</span>
+              <span class="product-price-unit">${product.unit}</span>
             </div>
-            <button class="btn btn-primary btn-sm" onclick="addToCart('${p.id}')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-              Agregar
+            <button class="btn btn-outline btn-sm" onclick="addToCart('${product.id}')">
+              Agregar +
             </button>
           </div>
         </div>
-      </div>
+      </article>
     `;
   }).join('');
 }
 
-// Add Item to Cart
+// Add to Cart
 function addToCart(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
 
-  let grind = '';
-  if (product.hasGrind) {
-    const grindSelect = document.getElementById(`grind-${productId}`);
-    if (grindSelect) {
-      grind = grindSelect.value;
-    }
-  }
+  const grindEl = document.getElementById(`grind-${productId}`);
+  const selectedOption = grindEl ? grindEl.value : 'Estándar';
+  const cartItemKey = `${productId}__${selectedOption}`;
 
-  const existingIndex = cart.findIndex(item => item.id === productId && item.grind === grind);
-  if (existingIndex > -1) {
-    cart[existingIndex].qty += 1;
+  const existing = cart.find(item => item.key === cartItemKey);
+  if (existing) {
+    existing.qty += 1;
   } else {
     cart.push({
+      key: cartItemKey,
       id: product.id,
       title: product.title,
       price: product.price,
       img: product.img,
-      grind: grind,
+      option: selectedOption,
       qty: 1
     });
   }
 
   updateCartUI();
-  openCartDrawer();
+  showToast(`Agregado: ${product.title}`);
 }
 
-// Adjust Quantity
-function updateQty(index, change) {
-  if (cart[index]) {
-    cart[index].qty += change;
-    if (cart[index].qty <= 0) {
-      cart.splice(index, 1);
-    }
-    updateCartUI();
+function updateQty(key, delta) {
+  const idx = cart.findIndex(item => item.key === key);
+  if (idx === -1) return;
+
+  cart[idx].qty += delta;
+  if (cart[idx].qty <= 0) {
+    cart.splice(idx, 1);
   }
+  updateCartUI();
 }
 
-// Update Cart UI
 function updateCartUI() {
   const badge = document.getElementById('cart-badge');
-  const itemsContainer = document.getElementById('cart-items');
-  const totalPriceElem = document.getElementById('cart-total-price');
+  const container = document.getElementById('cart-items-container');
+  const totalEl = document.getElementById('cart-total-price');
 
-  const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
-  const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+  const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
 
   if (badge) {
-    badge.textContent = totalCount;
-    badge.style.display = totalCount > 0 ? 'flex' : 'none';
+    badge.textContent = totalItems;
   }
 
-  if (totalPriceElem) {
-    totalPriceElem.textContent = formatCOP(totalPrice);
+  if (totalEl) {
+    totalEl.textContent = `${formatCOP(totalPrice)} COP`;
   }
 
-  if (itemsContainer) {
-    if (cart.length === 0) {
-      itemsContainer.innerHTML = `
-        <div class="cart-empty-state">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-          <p>Tu carrito está vacío.</p>
-          <p style="font-size: 0.8rem; margin-top: 4px;">Selecciona café o kits para iniciar tu pedido.</p>
-        </div>
-      `;
-    } else {
-      itemsContainer.innerHTML = cart.map((item, idx) => `
-        <div class="cart-item">
-          <img src="${item.img}" alt="${item.title}" class="cart-item-img" />
-          <div class="cart-item-info">
-            <h4 class="cart-item-title">${item.title}</h4>
-            ${item.grind ? `<div class="cart-item-variant">${item.grind}</div>` : ''}
-            <div class="cart-item-price">${formatCOP(item.price * item.qty)}</div>
-          </div>
-          <div class="cart-qty-ctrl">
-            <button class="qty-btn" onclick="updateQty(${idx}, -1)">-</button>
-            <span>${item.qty}</span>
-            <button class="qty-btn" onclick="updateQty(${idx}, 1)">+</button>
-          </div>
-        </div>
-      `).join('');
-    }
-  }
-}
+  if (!container) return;
 
-// Drawer Toggles
-function openCartDrawer() {
-  document.getElementById('cart-drawer')?.classList.add('active');
-  document.getElementById('cart-overlay')?.classList.add('active');
-}
-
-function closeCartDrawer() {
-  document.getElementById('cart-drawer')?.classList.remove('active');
-  document.getElementById('cart-overlay')?.classList.remove('active');
-}
-
-// Checkout via WhatsApp
-function checkoutWhatsApp() {
   if (cart.length === 0) {
-    alert('Tu carrito está vacío. Agrega algún producto antes de finalizar.');
+    container.innerHTML = `
+      <div style="padding: 3rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        Tu bolsa está vacía. Selecciona café recién tostado o un kit de regalo para comenzar.
+      </div>
+    `;
     return;
   }
 
-  const phone = '573002637978';
-  let message = `*¡Hola Valparaíso Café Co.!* ☕🌿\n\nDeseo realizar el siguiente pedido a través de su página web oficial:\n\n`;
-
-  let total = 0;
-  cart.forEach((item, i) => {
-    const sub = item.price * item.qty;
-    total += sub;
-    message += `${i + 1}. *${item.title}*\n`;
-    if (item.grind) message += `   • Molienda: ${item.grind}\n`;
-    message += `   • Cantidad: ${item.qty} | Subtotal: ${formatCOP(sub)}\n\n`;
-  });
-
-  message += `*TOTAL A PAGAR: ${formatCOP(total)}*\n\n`;
-  message += `Por favor indíquenme los datos para transferencia (Bancolombia / Nequi) y tiempo de despacho a mi dirección. ¡Muchas gracias!`;
-
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
+  container.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <img src="${item.img}" alt="${item.title}" class="cart-item-img">
+      <div>
+        <div class="cart-item-title">${item.title}</div>
+        <div class="cart-item-meta">${item.option}</div>
+        <div class="cart-qty-controls">
+          <button class="qty-btn" onclick="updateQty('${item.key}', -1)" aria-label="Disminuir cantidad">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="updateQty('${item.key}', 1)" aria-label="Aumentar cantidad">+</button>
+        </div>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-primary);">
+        ${formatCOP(item.price * item.qty)}
+      </div>
+    </div>
+  `).join('');
 }
 
-// B2B Office Coffee Calculator (Enhanced with Official Saeco Specs)
-function calculateOfficeCoffee() {
-  const peopleInput = document.getElementById('calc-people');
-  const cupsPerPersonInput = document.getElementById('calc-cups');
-  
-  if (!peopleInput || !cupsPerPersonInput) return;
+function openCartDrawer() {
+  document.getElementById('cart-backdrop')?.classList.add('open');
+  document.getElementById('cart-drawer')?.classList.add('open');
+}
 
-  const people = parseInt(peopleInput.value, 10);
-  const cupsPerPerson = parseFloat(cupsPerPersonInput.value);
+function closeCartDrawer() {
+  document.getElementById('cart-backdrop')?.classList.remove('open');
+  document.getElementById('cart-drawer')?.classList.remove('open');
+}
 
-  document.getElementById('calc-people-val').textContent = `${people} personas`;
-  document.getElementById('calc-cups-val').textContent = `${cupsPerPerson} tazas/día`;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2600);
+}
 
-  const dailyCups = Math.round(people * cupsPerPerson);
-  const monthlyWorkDays = 22;
-  const monthlyCups = dailyCups * monthlyWorkDays;
-  const kgNeeded = Math.ceil((monthlyCups * 8.5) / 1000);
-
-  let machineName = 'Saeco Lirika Plus';
-  let machineCapacity = 'Ideal para hasta 60 cafés diarios';
-  let machineDesc = 'Molino de muelas cerámicas, pantalla intuitiva tipo semáforo, 500g grano y 2.5L de agua.';
-  
-  if (dailyCups > 60 && dailyCups <= 120) {
-    machineName = 'Saeco Aulika Focus';
-    machineCapacity = 'Ideal para 60 a 120 cafés diarios';
-    machineDesc = 'Doble caldera y doble bomba, One-Touch Cappuccino automático, 4L de agua y 1kg de grano.';
-  } else if (dailyCups > 120) {
-    machineName = 'Saeco Phedra Bean-to-Cup';
-    machineCapacity = 'Alta demanda (+120 cafés/día y eventos)';
-    machineDesc = 'Conexión a red hídrica, 8 selecciones programables (Espresso, Americano, Cappuccino, Latte, Mocaccino, Chocolate y Té).';
+// WhatsApp Checkout & Quotes
+function checkoutViaWhatsApp() {
+  if (cart.length === 0) {
+    showToast('Agrega al menos un producto a tu bolsa');
+    return;
   }
 
-  // Cost estimates: Tarifa Plana ~$1.000 COP/cup vs ~$2.800 COP/commercial capsule
-  const estimatedMonthlyCOP = monthlyCups * 1000;
-  const capsuleCostEstimated = monthlyCups * 2800;
-  const monthlySavings = capsuleCostEstimated - estimatedMonthlyCOP;
+  const lines = cart.map(item =>
+    `• ${item.qty}x ${item.title} (${item.option}) — ${formatCOP(item.price * item.qty)}`
+  );
+  const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
 
-  document.getElementById('calc-daily-cups').textContent = `${dailyCups} tazas/día`;
-  document.getElementById('calc-monthly-cups').textContent = `${monthlyCups.toLocaleString('es-CO')} tazas`;
-  document.getElementById('calc-kg-needed').textContent = `${kgNeeded} kg/mes de Café Especial`;
-  document.getElementById('calc-recommended-name').textContent = machineName;
-  document.getElementById('calc-recommended-cap').textContent = machineCapacity;
-  document.getElementById('calc-recommended-desc').textContent = machineDesc;
-  document.getElementById('calc-monthly-invest').textContent = formatCOP(estimatedMonthlyCOP);
-  document.getElementById('calc-monthly-savings').textContent = formatCOP(monthlySavings);
+  const text = [
+    'Hola Valparaíso Café Co., deseo realizar el siguiente pedido desde el sitio web:',
+    '',
+    ...lines,
+    '',
+    `Total estimado: ${formatCOP(total)} COP`,
+    'Quedo atento(a) a los datos de pago y despacho.'
+  ].join('\n');
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
 }
 
-// Request B2B Quote via WhatsApp
-function quoteOfficeViaWhatsApp(customPlan = null) {
-  const people = document.getElementById('calc-people')?.value || '35';
-  const cups = document.getElementById('calc-cups')?.value || '2';
-  const daily = Math.round(people * cups);
-  const machine = customPlan || document.getElementById('calc-recommended-name')?.textContent || 'Saeco Aulika Focus';
-
-  const phone = '573002637978';
-  const message = `*¡Hola Juan Camilo / Valparaíso Café Co.!* ☕🏢\n\nEstoy interesado en una propuesta de *Café de Especialidad para Empresas*:\n\n• Modalidad: ${customPlan ? customPlan : 'Comodato Tarifa Plana Todo Incluido'}\n• Equipo de trabajo: ${people} personas\n• Estimado de consumo: ~${daily} cafés al día\n• Máquina de interés: *${machine}*\n\n¿Podríamos agendar una degustación en nuestra sede o conocer la cotización formal? ¡Muchas gracias!`;
-
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-// Quote Event Catering Station
-function quoteEventStation() {
-  const phone = '573002637978';
-  const message = `*¡Hola Valparaíso Café Co.!* ☕🎪\n\nDeseo cotizar el servicio de *Estación de Café para Eventos / Feria Corporativa*:\n\n• Incluye: Máquina superautomática Saeco de molienda al instante, Café de origen Valparaíso, vasos biodegradables 4oz/7oz, mezcladores ecológicos y endulzante natural.\n\n¿Podrían indicarme disponibilidad y detalles para nuestra fecha?`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-// Quote Custom Corporate Gift Boxes (Kits Compartir)
 function quoteCorporateGifts() {
-  const phone = '573002637978';
-  const message = `*¡Hola Juan Camilo / Valparaíso Café Co.!* 🎁☕\n\nQuisiera cotizar un lote del *Kit Corporativo de Café "Compartir"* personalizado para nuestra empresa (Opciones Chemex / Prensa Francesa / V60 con logo en caja y etiqueta).\n\n¿Podrían enviarme el catálogo corporativo con escala de precios por volumen?`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  const text = 'Hola Valparaíso Café Co., me interesa cotizar un lote corporativo personalizado de Kits "Compartir" con el logo de nuestra empresa.';
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
 }
 
-// Contact Form Handler
-function handleContactSubmit(e) {
-  e.preventDefault();
-  const name = document.getElementById('contact-name')?.value;
-  const phone = document.getElementById('contact-phone')?.value;
-  const email = document.getElementById('contact-email')?.value;
-  const type = document.getElementById('contact-type')?.value;
-  const messageText = document.getElementById('contact-message')?.value;
-
-  const targetPhone = '573002637978';
-  const text = `*Nuevo Contacto desde Sitio Web Valparaíso Café*\n\n• Nombre: ${name}\n• Teléfono: ${phone}\n• Email: ${email}\n• Tipo de Solicitud: ${type}\n• Mensaje: ${messageText}`;
-
-  window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`, '_blank');
+function quoteOfficeViaWhatsApp(modality) {
+  const text = `Hola Juan Camilo, nos interesa recibir información y propuesta para nuestra empresa en la modalidad: ${modality}.`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
 }
 
-// DOM Ready initialization
+// B2B Office Consumption Simulator
+function updateB2BCalculator() {
+  const empInput = document.getElementById('calc-employees');
+  const cupsInput = document.getElementById('calc-cups');
+  const daysInput = document.getElementById('calc-days');
+  if (!empInput || !cupsInput || !daysInput) return;
+
+  const employees = parseInt(empInput.value, 10);
+  const cupsPerDay = parseFloat(cupsInput.value);
+  const daysPerMonth = parseInt(daysInput.value, 10);
+
+  document.getElementById('employees-val').textContent = `${employees} personas`;
+  document.getElementById('cups-val').textContent = `${cupsPerDay.toFixed(1)} tazas`;
+  document.getElementById('days-val').textContent = `${daysPerMonth} días`;
+
+  const totalCups = Math.round(employees * cupsPerDay * daysPerMonth);
+  // 8g per cup average (approx 125 cups per kg)
+  const totalKilos = (totalCups * 8) / 1000;
+  // Official 2025 rate: $68.000 COP per kg ($34.000 per lb in 5lb bags)
+  const estimatedCost = Math.round(totalKilos * 68000);
+
+  document.getElementById('res-total-cups').textContent = totalCups.toLocaleString('es-CO');
+  document.getElementById('res-kilos').textContent = `${totalKilos.toFixed(1)} kg`;
+  document.getElementById('res-cost').textContent = `${formatCOP(estimatedCost)} COP / mes`;
+
+  const machineNameEl = document.getElementById('res-machine-name');
+  const machineDescEl = document.getElementById('res-machine-desc');
+
+  if (totalCups < 750) {
+    machineNameEl.textContent = 'Saeco Lirika Plus';
+    machineDescEl.textContent = 'Compacta e ideal para equipos de hasta 20 personas. Molienda cerámica integrada y vaporizador para bebidas con leche.';
+  } else if (totalCups <= 1800) {
+    machineNameEl.textContent = 'Saeco Aulika Evo Focus';
+    machineDescEl.textContent = 'Doble circuito hidráulico, capuccinador automático One-Touch y tolva de alta capacidad. Ideal para oficinas en modalidad Comodato.';
+  } else {
+    machineNameEl.textContent = 'Saeco Phedra Evo Cappuccino';
+    machineDescEl.textContent = 'Estación semi-industrial de alto tráfico para corporativos y coworkings. Dispensa espresso de grano fresco, cappuccino y chocolate.';
+  }
+}
+
+function sendCalculatorQuoteToWhatsApp() {
+  const emp = document.getElementById('calc-employees')?.value || 25;
+  const totalCups = document.getElementById('res-total-cups')?.textContent || '1.100';
+  const kilos = document.getElementById('res-kilos')?.textContent || '8.8 kg';
+  const machine = document.getElementById('res-machine-name')?.textContent || 'Saeco Aulika Evo Focus';
+  const cost = document.getElementById('res-cost')?.textContent || '$612.000 COP / mes';
+
+  const text = [
+    'Hola Valparaíso Café Co., realicé la simulación B2B en el sitio web para nuestra oficina:',
+    '',
+    `• Equipo: ${emp} personas`,
+    `• Consumo estimado: ${totalCups} tazas/mes (${kilos})`,
+    `• Equipo sugerido: ${machine}`,
+    `• Presupuesto estimado suministro: ${cost}`,
+    '',
+    'Quisiera agendar una prueba de café o recibir propuesta formal.'
+  ].join('\n');
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+// Initialize Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-  renderProducts();
+  renderProducts('todos');
+  updateCartUI();
+  updateB2BCalculator();
 
-  // Filter tabs
+  // Category Tabs
   document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      e.target.classList.add('active');
-      const cat = e.target.getAttribute('data-category');
-      renderProducts(cat);
+      btn.classList.add('active');
+      currentCategory = btn.getAttribute('data-category') || 'todos';
+      renderProducts(currentCategory);
     });
   });
 
-  // Header scroll detection
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 40) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
+  // Calculator Sliders
+  ['calc-employees', 'calc-cups', 'calc-days'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', updateB2BCalculator);
     }
   });
 
-  // Office Calculator listener
-  const peopleSlider = document.getElementById('calc-people');
-  const cupsSlider = document.getElementById('calc-cups');
-  if (peopleSlider && cupsSlider) {
-    peopleSlider.addEventListener('input', calculateOfficeCoffee);
-    cupsSlider.addEventListener('input', calculateOfficeCoffee);
-    calculateOfficeCoffee();
-  }
-
-  // FAQ Accordion
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    questionBtn?.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) {
-        item.classList.add('open');
-      }
+  // Mobile Menu
+  const menuBtn = document.getElementById('menu-toggle');
+  const nav = document.getElementById('primary-nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('mobile-open');
     });
-  });
-
-  // Mobile menu toggle
-  const menuToggle = document.getElementById('menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isVisible = navLinks.style.display === 'flex';
-      navLinks.style.display = isVisible ? 'none' : 'flex';
-      if (!isVisible) {
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.background = 'rgba(14, 10, 7, 0.98)';
-        navLinks.style.padding = '24px';
-        navLinks.style.borderBottom = '1px solid var(--color-border)';
-      }
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => nav.classList.remove('mobile-open'));
     });
   }
 });
